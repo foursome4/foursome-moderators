@@ -1,7 +1,21 @@
 import './signIn.css';
 import logoImg from '../../assets/logo.png'
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../contexts/Auth';
 
 function SignIn() {
+    const {loginSession} = useContext(AuthContext);
+
+
+    const [login, setLogin] = useState("");
+    const [password, setpassword] = useState("");
+
+    function handleLogin(e) {
+        e.preventDefault()
+
+        console.log({login, password});
+      loginSession({login, password})
+    }
     return(
         <div className="content">
     <div className='signIn'> 
@@ -10,11 +24,11 @@ function SignIn() {
         </div>
         <div className="data">
             <form action="">
-                <input type="text" value="" placeholder='Nome de usuário ou E-mail'/>
+                <input type="text" value={login} placeholder='Nome de usuário ou E-mail' onChange={(e) => setLogin(e.target.value)}/>
                 <div className="password">
-                <input type="password" value="" placeholder='Senha'/>
+                <input type="password" value={password} placeholder='Senha' onChange={(e) => setpassword(e.target.value)}/>
                 </div>
-                <button>Entrar</button>
+                <button onClick={handleLogin}>Entrar</button>
             </form>
         </div>
     </div>

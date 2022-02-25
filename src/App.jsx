@@ -1,12 +1,22 @@
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './contexts/Auth';
 import './Global.css';
-import { Dashboard } from './pages/Dashboard/Dashboard';
-import { SignIn } from './pages/SignIn/SignIn';
+import { Router } from './routes/Router';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
+    <BrowserRouter>
+    <AuthProvider>
     <div className="container">
-      <Dashboard />
+    <ToastContainer autoClose={3000} theme="colored" />
+    <Router />
     </div>
+      </ AuthProvider>
+    </BrowserRouter>
+
   );
 }
 
