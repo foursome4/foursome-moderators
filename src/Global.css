@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --Primary: #8124E2;
+  --Background: #F6F2F8;
+  --Background-man: #ececff;
+  --Background-woman: #ffecfc;
+  --Background-preferences: #ffffec;
+  --Background2: #FEFEFE;
+  --Gray_font1: #828CA9;
+  --Gray_font2: #727376;
+  --Black: #000000;
+  --White: #ffffff;
+  --Button: #0095D3;
+  --Gray-Border: #BFC4D3;
+}
+
+html {
+  @media (max-width: 1080px) {
+    font-size: 93.75%;
+    
+    @media (max-width: 720px) {
+      font-size: 87.5%;
+    }
+  }
+  
+}
+
+body {
+  background: var(--Black);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body, input, textarea, button {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  
+  
+}
+body, input, textarea, button :focus{
+  outline: none;
+  }
+
+  body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--Background2);        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--Background-man);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid var(--Background2);  /* creates padding around scroll thumb */
+  }
+
+  textarea {
+    padding: 10px;
+  }
+  input, textarea {
+
+    color: var(--Primary);
+  }
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 400;
+}
+
+p {
+  font-size: 12px;
+}
+
+button {
+  cursor: pointer;
+}
+

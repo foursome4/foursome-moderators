@@ -1,0 +1,80 @@
+.signIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.signIn .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+.signIn .title img {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.signIn .data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid var(--Background);
+    border-radius: 6px;
+    padding: 10px;
+    width: 80%;
+}
+
+.signIn .data form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.signIn .data form input {
+    width: 90%;
+    height: 40px;
+    font-weight: 500;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid var(--Background);
+    color: var(--Gray_font2);
+    background-color: black;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.signIn .data form .password {
+    width: 90%;
+}
+
+.signIn .data form .password input {
+    width: 100%;
+    height: 40px;
+    font-weight: 500;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid var(--Background);
+    color: var(--Gray_font2);
+    background-color: black;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+
+.signIn .data form button {
+    width: 50%;
+    height: 40px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: black;
+    border: none;
+    color: var(--Background);
+    font-size: 16px;
+}
