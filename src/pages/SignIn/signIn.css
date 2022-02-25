@@ -1,0 +1,255 @@
+.content {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .signIn {
+    margin-top: 14%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.content .signIn .form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+
+.content .signIn .form input:focus {
+    outline: none;
+  }
+
+.content .signIn .form input {
+    width: 70%;
+    height: 50px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #fff;
+    background-color: var(--Background2);
+    border-radius: 6px;
+    font-size: 16px;
+    padding:10px;
+    margin-bottom: 5px;
+    color: var(--Black);
+    font-weight: 600;
+}
+
+.content .signIn .form input::placeholder {
+    color: var(--Gray_font1);
+}
+
+.content .signIn .form .inputPassword {
+width: 70%;
+height: 50px;
+display: flex;
+
+}
+
+.content .signIn .form .inputPassword input {
+    width: 100%;
+    border-radius: 6px 0 0 6px;
+}
+
+.content .signIn .form .password {
+    background-color: var(--Background2);
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    font-size: 20px;
+    color: var(--Black);
+}
+
+.content .signIn .form .buttons {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.content .signIn .form .buttons button {
+    background-color: var(--Primary);
+    width: 100px;
+    height: 35PX;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.content .signIn .form .buttons p {
+    font-weight: bold;
+    color: #fff;
+}
+
+.content .signIn .form .buttons a {
+    text-decoration: none;
+}
+
+.content .signIn .logo {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--White);
+}
+
+.content .signIn .logo img{
+    width: 35%;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+
+    .content .signIn {
+        margin-top: 20%;
+    }
+    .content .signIn .form {
+        width: 50%;
+    }
+
+    .content .signIn .form input {
+        width: 100%;
+    }
+
+    .content .signIn .form .inputPassword {
+        width: 100%;
+    }
+
+    .content .signIn .form .buttons {
+        width: 100%;
+    }
+
+    .content .signIn .logo img{
+        width: 45%;
+    }
+
+    @media (max-width: 900px) {
+
+        .content .signIn {
+            margin-top: 25%;
+        }
+
+        .content .signIn .form {
+            width: 70%;
+        }
+    
+        .content .signIn .form input {
+            width: 100%;
+        }
+
+        .content .signIn .form .inputPassword {
+            width: 100%;
+        }
+
+        .content .signIn .logo img{
+            width: 50%;
+        }
+
+        @media (max-width: 700px) {
+
+            .content .signIn {
+                margin-top: 30%;
+            }
+            .content .signIn .form {
+                width: 70%;
+            }
+        
+            .content .signIn .form input {
+                width: 100%;
+            }
+
+            .content .signIn .form .inputPassword {
+                width: 100%;
+            }
+            .content .signIn .logo img{
+                width: 70%;
+            }
+
+            @media (max-width: 500px) {
+
+                .content .signIn {
+                    margin-top: 45%;
+                }
+                .content .signIn .form {
+                    width: 70%;
+                }
+            
+                .content .signIn .form input {
+                    width: 100%;
+                }
+
+                .content .signIn .form .inputPassword {
+                    width: 100%;
+                }
+                .content .signIn .logo img{
+                    width: 80%;
+                }
+
+
+                @media (max-width: 400px) {
+
+                    .content .signIn {
+                        margin-top: 50%;
+                    }
+                    .content .signIn .form {
+                        width: 70%;
+                    }
+                
+                    .content .signIn .form input {
+                        width: 100%;
+                    }
+
+                    .content .signIn .form .inputPassword {
+                        width: 100%;
+                    }
+                    .content .signIn .logo img{
+                        width: 100%;
+                    }
+
+                    @media (max-width: 350px) {
+
+                        .content .signIn {
+                            margin-top: 60%;
+                        }
+
+                        .content .signIn .form input {
+                            font-size: 14px;
+                        }
+
+                        .content .signIn .form .inputPassword {
+                            width: 100%;
+                            font-size: 14px;
+                        }
+                        .content .signIn .form .buttons p {
+                            margin-left: 30px;
+                            font-size: 12px;
+                        }
+                    }
+                    
+                }
+                
+            }
+
+            
+        }
+        
+    }
+    
+}

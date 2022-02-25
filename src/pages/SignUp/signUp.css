@@ -1,0 +1,243 @@
+.content {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .signUp {
+    width: 100%;
+    margin-top: 10%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.content .signUp .form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--White);
+   
+}
+
+.content .signUp .form .title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 70%;
+    color: var(--White);
+    margin-bottom: 10px;
+}
+
+.content .signUp .form input:focus{
+    outline: none;
+  }
+
+  .content .signUp .form option:focus{
+    outline: none;
+  }
+  .content .signUp .form select:focus{
+    outline: none;
+  }
+
+
+.content .signUp .form input {
+    width: 70%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: var(--Background2);
+    border-radius: 6px;
+    font-size: 14px;
+    padding:10px;
+    margin-bottom: 5px;
+    color: var(--Primary);
+    font-weight: bold;
+}
+
+.content .signUp .form select {
+    width: 70%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: var(--Background2);
+    border-radius: 6px;
+    font-size: 14px;
+    padding:5px;
+    margin-bottom: 5px;
+    color: var(--Primary);
+    font-weight: bold;
+
+}
+
+.content .signUp .form option {
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+    padding:10px 5px;
+    margin-bottom: 10px;
+    color: var(--Primary);
+
+}
+
+.content .signUp .form input::placeholder {
+    color: var(--Gray_font1);
+}
+
+.content .signUp .form .inputPassword {
+    width: 70%;
+    height: 35px;
+    display: flex;
+    
+    }
+    
+    .content .signUp .form .inputPassword input {
+        width: 100%;
+        border-radius: 6px 0 0 6px;
+    }
+    
+    .content .signUp .form .password {
+        background-color: var(--Background2);
+        height: 30px;
+        width: 50px;
+        border: none;
+        border-radius: 0 6px 6px 0;
+        font-size: 20px;
+        color: var(--Primary);
+    }
+    
+
+
+.content .signUp .form .buttons {
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.content .signUp .form .buttons button {
+    background-color: var(--Button);
+    width: 100px;
+    height: 35PX;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.content .signUp .form .terms {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--White);
+    margin-top: 10px;
+}
+
+.content .signUp .form .terms input[type="checkbox"] {
+    margin-left: 5px;
+    margin-right: 10px;
+    color: var(--Primary);
+    width: 15px;
+}
+
+
+.content .signUp .logo {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--White);
+    text-align: center;
+}
+
+.content .signUp .logo img{
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+    .content .signUp {
+        width: 100%;
+        margin-top: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .content .signUp .logo {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--White);
+        text-align: center;
+    }
+
+    .content .signUp .form {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--White);
+       margin-top: 30px;
+    }
+
+    .content .signUp .logo img{
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 500px) {
+        .content .signUp {
+            width: 100%;
+            margin-top: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+    
+        .content .signUp .logo {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: var(--White);
+            text-align: center;
+        }
+    
+        .content .signUp .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--White);
+           margin-top: 30px;
+        }
+
+        .content .signUp .logo img{
+            width: 60%;
+            margin-bottom: 20px;
+        }
+    }
+    
+}
