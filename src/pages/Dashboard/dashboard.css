@@ -142,6 +142,106 @@
     margin: 3px 3px;
 }
 
+.dashboard .blocks .block .informationPhoto {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    color: var(--Background);
+    overflow-y: scroll;
+    width: 90%;
+    background-color: black;
+    border-radius: 6px;
+    height: 90%;
+}
+
+.dashboard .blocks .block .informationPhoto .photos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 95%;
+    background-color: rgb(19, 19, 19);
+    margin: 5px 0;
+    padding: 5px 0;
+}
+.dashboard .blocks .block .informationPhoto .photos .image{
+    object-fit: contain;
+    width: 220px;
+    height: 220px;
+}
+
+.dashboard .blocks .block .informationPhoto .photos .image img{
+    width: 95%;
+    object-fit: contain;
+    width: 220px;
+    height: 220px;
+}
+
+.dashboard .blocks .block .informationPhoto .photos button {
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 5px;
+    border: none;
+    border-radius: 6px;
+    color: aliceblue;
+    margin: 10px 0 0 0;
+}
+
+
+.dashboard .blocks .block .informationVideo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    color: var(--Background);
+    overflow-y: scroll;
+    width: 90%;
+    background-color: black;
+    border-radius: 6px;
+    height: 90%;
+}
+
+.dashboard .blocks .block .informationVideo .videos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 95%;
+    background-color: rgb(19, 19, 19);
+    margin: 5px 0;
+    padding: 5px 0;
+}
+.dashboard .blocks .block .informationVideo .videos .video{
+    object-fit: contain;
+    width: 220px;
+    height: 220px;
+}
+
+.dashboard .blocks .block .informationVideo .videos .video video{
+    width: 95%;
+    object-fit: contain;
+    width: 220px;
+    height: 220px;
+}
+
+.dashboard .blocks .block .informationVideo .videos button {
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 5px;
+    border: none;
+    border-radius: 6px;
+    color: aliceblue;
+    margin: 10px 0 0 0;
+}
+
+
 
 .dashboard .blocks .block h5 {
     color: var(--Background);
