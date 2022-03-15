@@ -7,10 +7,10 @@
     flex-direction: row;
     width: 100%;
     height: 50px;
-    padding: 0 35px;
-    position: absolute;
     top: 0;
     left: 0;
+    background-color: black;
+    position: absolute;
 }
 
 .topBar .image {

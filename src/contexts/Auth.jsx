@@ -43,9 +43,15 @@ function AuthProvider({children}) {
             email = login
             await api.post("/session", {email, password}).then((result) => {
                 console.log(result.data)
+                const data = result.data;
+                if(result.data.role === "Moderador" || result.data.role === "Administrador") {
+                localStorage.setItem("foursome", JSON.stringify(data));
                 console.log("Login realizado com sucesso!");
-                storageUser(result.data);
                 setLoading(false);
+                navigate("/dashboard")
+            } else {
+                toast.error("Você não tem permissão para acessar esta área")
+            }
                 
             }).catch(error => {
                 console.log("Login não foi realizado" + error)
@@ -57,9 +63,16 @@ function AuthProvider({children}) {
             username = login
             await api.post("/session", {username, password})
             .then((result) => {
+                console.log(result.data)
+                if(result.data.role === "Moderador" || result.data.role === "Administrador") {
+                    const data = result.data;
+                localStorage.setItem("foursome", JSON.stringify(data));
                 console.log("Login realizado com sucesso!");
-                storageUser(result.data);
                 setLoading(false);
+                navigate("/dashboard")
+            } else {
+                toast.error("Você não tem permissão para acessar esta área")
+            }
                 
             }).catch(error => {
                 console.log("Login não foi realizado" + error)
@@ -73,11 +86,7 @@ function AuthProvider({children}) {
 
 
 
-    function storageUser(data) {
-        localStorage.setItem("foursome", JSON.stringify(data));
-    }
-
-
+ 
 
     function logout() {
         localStorage.removeItem("foursome");
