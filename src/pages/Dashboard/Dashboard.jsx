@@ -10,8 +10,9 @@ function Dashboard() {
     const [accounts, setAccounts] = useState([]);
     const [usersOnline, setUsersOnline] = useState([]);
     const [posts, setPosts] = useState([]);
-    const [comments, setComments] = useState([]);
-    const [Reply, setReply] = useState([]);
+    const [groups, setGroups] = useState([]);
+    const [foruns, setForuns] = useState([]);
+    const [events, setEvents] = useState([]);
 
     useEffect(() => {
         async function loadAccounts(){
@@ -28,9 +29,33 @@ function Dashboard() {
                 console.log(result.data.length)
             })
         }
+        async function loadGroups(){
+            await api.get("/groups").then((result) =>{
+                setGroups(result.data);
+                console.log(result.data)
+                console.log(result.data.length)
+            })
+        }
+        async function loadForunss(){
+            await api.get("/foruns").then((result) =>{
+                setForuns(result.data);
+                console.log(result.data)
+                console.log(result.data.length)
+            })
+        }
+        async function loadEvents(){
+            await api.get("/events").then((result) =>{
+                setEvents(result.data);
+                console.log(result.data)
+                console.log(result.data.length)
+            })
+        }
 
         loadAccounts();
         loadPosts();
+        loadGroups();
+        loadForunss();
+        loadEvents();
     }, [])
 
     const PostPhoto = posts.filter((photo) => (photo.type === "post-photo"));
@@ -109,13 +134,6 @@ function Dashboard() {
                        
                     </div>
                    
-                    <div className="block">
-                        <h4>Posts</h4>
-                        <div className="information">
-                            
-                        </div>
-                       
-                    </div>
                  </div>
 
                  <div className="mini-blocks">
@@ -133,15 +151,15 @@ function Dashboard() {
                      </div>
                      <div className="mini">
                         <h4> Grupos criados</h4>
-                        <h4> X </h4>
+                         <h4> {groups.length} </h4>
                      </div>
                      <div className="mini">
                         <h4> Foruns Criados</h4>
-                        <h4> X </h4>
+                         <h4> {foruns.length} </h4>
                      </div>
                      <div className="mini">
                         <h4> Eventos Criados</h4>
-                        <h4> X </h4>
+                        <h4> {events.length} </h4>
                      </div>
                      <div className="mini">
                         <h4> Convites Enviados</h4>
