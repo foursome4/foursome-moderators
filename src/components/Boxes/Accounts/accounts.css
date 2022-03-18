@@ -1,0 +1,123 @@
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 400px;
+    height: 370px;
+    padding: 10px;
+    color: var(--Background);
+    flex-wrap: wrap; 
+    background-color: black;
+    border-radius: 6px;
+    color: var(--Background);
+}
+
+.block h4 {
+    color: var(--Background);
+}
+
+.block .informationAccount {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: var(--Background);
+    overflow-y: scroll;
+    width: 90%;
+    border-radius: 6px;
+    height: 90%;
+}
+
+.block .informationAccount::-webkit-scrollbar {
+    width: 12px;              
+  }
+  
+ .block .informationAccount::-webkit-scrollbar-track {
+    background: var(--Background2);      
+  }
+  
+ .block .informationAccount::-webkit-scrollbar-thumb {
+    background-color: var(--Black);   
+    border-radius: 20px;      
+    border: 3px solid var(--Background2); 
+  }
+
+.block .informationAccount .account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    margin: 2px;
+    border-radius: 6px;
+    background-color: rgb(19, 19, 19);
+    padding: 5px;
+}
+
+.block .informationAccount .account .name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    
+}
+
+.block .informationAccount .account .name h4 {
+    font-weight: 700;
+    margin: 5px 0 0 0;
+}
+.block .informationAccount .account .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 5px 0;
+
+}
+
+.block .informationAccount .account .buttons .promote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: blue;
+    color: aliceblue;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 3px 3px;
+    font-weight: 700;
+    width: 80px;
+    height: 30px;
+}
+.block .informationAccount .account .buttons .blocked{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: rgb(201, 188, 0);
+    color: aliceblue;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 3px 3px;
+    font-weight: 700;
+    width: 80px;
+    height: 30px;
+}
+.block .informationAccount .account .buttons .banned{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: rgb(255, 0, 0);
+    color: aliceblue;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 3px 3px;
+    font-weight: 700;
+    width: 80px;
+    height: 30px;
+}

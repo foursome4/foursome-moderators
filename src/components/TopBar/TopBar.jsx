@@ -11,15 +11,13 @@ function TopBar() {
                     <img src={logo} alt="" />
                 </div>
                 <div className="menu">
-                    <a href="" > Dashboard</a>
-                    <a href="" > Usuários</a>
-                    <a href="" > Feed</a>
+                    <a href="/dashboard" > Dashboard</a>
+                    <a href="/feed" > Feed</a>
                     <a href="" > Convites</a>
                     <a href="" > Grupos</a>
                     <a href="" > Foruns</a>
                     <a href="" > Eventos</a>
                     <a href="" > Locais</a>
-                    <a href="" > Mensagens</a>
                 </div>
             </div>
         </div>

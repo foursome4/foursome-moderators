@@ -1,6 +1,5 @@
 .topBar {
     border: none;
-    border-bottom: 1px solid var(--Background);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,6 +10,7 @@
     left: 0;
     background-color: black;
     position: absolute;
+    padding: 10px 40px;
 }
 
 .topBar .image {
@@ -21,7 +21,7 @@
 }
 
 .topBar .image img {
-    height: 45px;
+    height: 35px;
 }
 
 .topBar .menu {
@@ -34,5 +34,5 @@
 .topBar .menu a {
     text-decoration: none;
     color: var(--Background);
-    margin: 0 5px;
+    margin: 0 10px;
 }

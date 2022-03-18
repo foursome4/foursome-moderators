@@ -1,0 +1,38 @@
+.feed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background-color: blue;
+}
+
+.feed .postIndividual{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+
+.feed .postIndividual .media{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background-color: aqua;
+}
+
+.feed .postIndividual .media .image {
+    width: 700px;
+    height: 700px;
+    object-fit: cover;
+}
+
+
+
+

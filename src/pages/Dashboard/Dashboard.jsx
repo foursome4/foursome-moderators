@@ -1,4 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Accounts, AccountsCounter } from '../../components/Boxes/Accounts/Accounts';
+import { PostPhotos, PostPhotosCounter } from '../../components/Boxes/PostPhotos/PostPhotos';
+import { PostVideo, PostVideoCounter } from '../../components/Boxes/PostVideo/PostVideo';
 import { TopBar } from '../../components/TopBar/TopBar';
 import api from '../../services/api';
 import './dashboard.css';
@@ -7,28 +10,14 @@ function Dashboard() {
     const local = localStorage.getItem("foursome");
     const user = JSON.parse(local)
 
-    const [accounts, setAccounts] = useState([]);
-    const [usersOnline, setUsersOnline] = useState([]);
-    const [posts, setPosts] = useState([]);
+    const [onlineUsers, setOnlineUsers] = useState([]);
     const [groups, setGroups] = useState([]);
     const [foruns, setForuns] = useState([]);
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        async function loadAccounts(){
-            await api.get("/accounts").then((result) =>{
-                setAccounts(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-        async function loadPosts(){
-            await api.get("/posts/all").then((result) =>{
-                setPosts(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
+
+
         async function loadGroups(){
             await api.get("/groups").then((result) =>{
                 setGroups(result.data);
@@ -36,6 +25,13 @@ function Dashboard() {
                 console.log(result.data.length)
             })
         }
+
+
+        loadGroups();
+    }, [])
+
+    useEffect(() => {
+
         async function loadForunss(){
             await api.get("/foruns").then((result) =>{
                 setForuns(result.data);
@@ -43,6 +39,12 @@ function Dashboard() {
                 console.log(result.data.length)
             })
         }
+
+        loadForunss();
+    }, [])
+
+    useEffect(() => {
+
         async function loadEvents(){
             await api.get("/events").then((result) =>{
                 setEvents(result.data);
@@ -51,16 +53,21 @@ function Dashboard() {
             })
         }
 
-        loadAccounts();
-        loadPosts();
-        loadGroups();
-        loadForunss();
         loadEvents();
     }, [])
 
-    const PostPhoto = posts.filter((photo) => (photo.type === "post-photo"));
-    const PostVideo = posts.filter((photo) => (photo.type === "post-video"));
-    const PostText = posts.filter((photo) => (photo.type === "post-text"));
+    useEffect(() => {
+
+        async function loadOnlineUsers(){
+            await api.get("/online").then((result) =>{
+                setOnlineUsers(result.data);
+                console.log(result.data)
+                console.log(result.data.length)
+            })
+        }
+
+        loadOnlineUsers();
+    }, [])
 
     return (
         <div className="content">
@@ -71,83 +78,23 @@ function Dashboard() {
                     <h3>Olá Jeferson, seja bem-vindo de volta</h3>
                 </div>
                 <div className="blocks">
-                    <div className="block">
-                        <h4>Usuários cadastrados</h4>
-                        <div className="informationAccount">
-                            {
-                                accounts.map((account) => {
-                                    return(
-                                        <div className="account" key={account.id}>
-                                            <div className="name">
-                                            <h4>{account.id} </h4> - 
-                                            <h4> {account.username}</h4>
-                                            </div>
-                                            <div className="buttons">
-                                                <button>Bloquear</button>
-                                                <button>Banir</button>
-                                                <button>Promover</button>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                       
-                    </div>
-                   
-                    <div className="block">
-                        <h4>Fotos</h4>
-                        <div className="informationPhoto">
-                            {PostPhoto.map((photo) => {
-                               return (
-                                <div className="photos">
-                                <h4>{photo.username}</h4>
-                                <div className="image">
-                                <img src={photo.link} alt={`Post Foto ${photo.username}`} />
-                                </div>
-                                <button>Deletar</button>
-                            </div>
-                               )
-                            })}
-                        </div>
-                       
-                    </div>
-                   
-                    <div className="block">
-                        <h4>Vídeos</h4>
-                        <div className="informationVideo">
-                            {PostVideo.map((video) => {
-                                return(
-                                    <div className="videos">
-                                         <h4>{video.username}</h4>
-                                          <div className="video">
-                                        <video controls controlsList="nofullscreen nodownload" >
-                                             <source src={video.link} type="video/mp4"/>
-                                        </video>
-                                        </div>
-                                         <button>Deletar</button>
-                                    </div>
-                                )
-                            })}
-                        
-                        </div>
-                       
-                    </div>
-                   
+                 <Accounts />
+                 <PostPhotos />
+                 <PostVideo />               
                  </div>
 
                  <div className="mini-blocks">
                      <div className="mini">
                         <h4> Contas Criadas</h4>
-                        <h4> {accounts.length} </h4>
+                        <h4> <AccountsCounter /> </h4>
                      </div>
                      <div className="mini">
                         <h4> Fotos Postadas</h4>
-                        <h4> {PostPhoto.length} </h4>
+                        <h4> <PostPhotosCounter /> </h4>
                      </div>
                      <div className="mini">
                         <h4> Videos postados</h4>
-                        <h4> {PostVideo.length} </h4>
+                        <h4> <PostVideoCounter /> </h4>
                      </div>
                      <div className="mini">
                         <h4> Grupos criados</h4>
@@ -167,7 +114,7 @@ function Dashboard() {
                      </div>
                      <div className="mini">
                         <h4> Usuários Online</h4>
-                        <h4> X </h4>
+                        <h4> {onlineUsers.length} </h4>
                      </div>
                  </div>
                 </div>
