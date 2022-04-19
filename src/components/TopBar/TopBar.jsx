@@ -23,11 +23,11 @@ function TopBar() {
                 <div className="menu">
                     <Link to="/dashboard" > Dashboard</Link>
                     <Link to="/feed" > Feed</Link>
-                    <Link to="" > Convites</Link>
-                    <Link to="" > Grupos</Link>
+                    <Link to="/invites" > Convites</Link>
+                    {/* <Link to="" > Grupos</Link>
                     <Link to="" > Foruns</Link>
                     <Link to="" > Eventos</Link>
-                    <Link to="" > Locais</Link>
+                    <Link to="" > Locais</Link> */}
 
                     <button onClick={handleLogout}>Sair</button>
                 </div>

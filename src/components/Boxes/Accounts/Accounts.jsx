@@ -26,6 +26,8 @@ function Accounts() {
                                         <div className="account" key={account.id}>
                                             <div className="name">
                                             <h4>{account.id} - {account.username}</h4>
+                                            <h4>{account.email}</h4>
+                                            <h4>{account.type}</h4>
                                             </div>
                                             <div className="buttons">
                                                 <button className='blocked'>Bloquear</button>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Accounts, AccountsCounter } from '../../components/Boxes/Accounts/Accounts';
 import { PostPhotos, PostPhotosCounter } from '../../components/Boxes/PostPhotos/PostPhotos';
 import { PostVideo, PostVideoCounter } from '../../components/Boxes/PostVideo/PostVideo';
+import { InvitesCounter } from '../../components/Invites/Invites';
 import { TopBar } from '../../components/TopBar/TopBar';
 import api from '../../services/api';
 import './dashboard.css';
@@ -124,7 +125,7 @@ function Dashboard() {
                      </div>
                      <div className="mini">
                         <h4> Convites</h4>
-                        <h4> {invites.length} </h4>
+                        <h4> <InvitesCounter /> </h4>
                      </div>
                      <div className="mini">
                         <h4> Usuários Online</h4>

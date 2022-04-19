@@ -1,0 +1,27 @@
+.invitesList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 90%;
+    padding: 60px 0;
+    flex-wrap: wrap;
+}
+.invitesList .invitesUnic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    background-color:#fff;
+    border-radius: 6px;
+}
+.invitesList .invitesUnic .codes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}

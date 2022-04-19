@@ -1,6 +1,7 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 import { Feed } from '../components/Feed/Feed';
 import { Dashboard } from '../pages/Dashboard/Dashboard';
+import { Invite } from '../pages/Invite/Invite';
 
 import {SignIn} from "../pages/SignIn/SignIn"
 
@@ -22,6 +23,8 @@ function PrivateRoute({children} ) {
                     element={ <PrivateRoute> <Dashboard/> </PrivateRoute>} />
             <Route path="/feed"
                     element={ <PrivateRoute> <Feed/> </PrivateRoute>} />
+            <Route path="/invites"
+                    element={ <PrivateRoute> <Invite /> </PrivateRoute>} />
            
             </Routes>
            

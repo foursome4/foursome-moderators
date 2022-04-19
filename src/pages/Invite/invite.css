@@ -1,0 +1,12 @@
+.invite {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+.invite h1 {
+    color: #fff;
+    margin: 80px 20px 0 20px;
+}
