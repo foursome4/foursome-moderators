@@ -2,13 +2,11 @@ import './signIn.css';
 import logoImg from '../../assets/logo.png'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/Auth';
-import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
-    const navigate = useNavigate()
     useEffect(() => {
         if(localStorage.getItem("foursome") !== null) {
-            navigate("/dashboard")
+            window.open("/dashboard", "_self")
         }
     }, [])
 

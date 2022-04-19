@@ -1,5 +1,4 @@
 import {createContext, useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import {toast} from 'react-toastify';
 import { socket } from '../services/websocket';
@@ -9,7 +8,6 @@ import { socket } from '../services/websocket';
 const AuthContext = createContext({});
 
 function AuthProvider({children}) {
-    const navigate = useNavigate();
     const [user, setUser] = useState("")
     const [loading, setLoading] = useState("")
 
@@ -30,7 +28,8 @@ function AuthProvider({children}) {
                loadStorage(); 
     },[]);
 
-
+    console.log(user);
+    console.log(loading);
 
     async function loginSession({login, password}) {     
        
@@ -48,7 +47,7 @@ function AuthProvider({children}) {
                 localStorage.setItem("foursome", JSON.stringify(data));
                 console.log("Login realizado com sucesso!");
                 setLoading(false);
-                navigate("/dashboard")
+                window.open("/dashboard","_self")
             } else {
                 toast.error("Você não tem permissão para acessar esta área")
             }
@@ -69,7 +68,7 @@ function AuthProvider({children}) {
                 localStorage.setItem("foursome", JSON.stringify(data));
                 console.log("Login realizado com sucesso!");
                 setLoading(false);
-                navigate("/dashboard")
+                window.open("/dashboard","_self")
             } else {
                 toast.error("Você não tem permissão para acessar esta área")
             }
@@ -92,9 +91,7 @@ function AuthProvider({children}) {
         localStorage.removeItem("foursome");
         localStorage.removeItem("informations-foursome");
         setUser(null);
-        navigate("/");
-
-        window.location.reload(false)
+        window.open("/","_self");
     }
 
  

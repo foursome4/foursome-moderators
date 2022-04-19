@@ -14,6 +14,7 @@ function Dashboard() {
     const [groups, setGroups] = useState([]);
     const [foruns, setForuns] = useState([]);
     const [events, setEvents] = useState([]);
+    const [invites, setInvites] = useState([]);
 
     useEffect(() => {
 
@@ -67,6 +68,19 @@ function Dashboard() {
         }
 
         loadOnlineUsers();
+    }, []);
+
+    useEffect(() => {
+
+        async function loadInvites(){
+            await api.get("/invites").then((result) =>{
+                setInvites(result.data);
+                console.log(result.data)
+                console.log(result.data.length)
+            })
+        }
+
+        loadInvites();
     }, [])
 
     return (
@@ -75,7 +89,7 @@ function Dashboard() {
                 <TopBar />
                 <div className="mainDashboard">
                 <div className="title">
-                    <h3>Olá Jeferson, seja bem-vindo de volta</h3>
+                    <h3>Olá {user.username}, seja bem-vindo de volta</h3>
                 </div>
                 <div className="blocks">
                  <Accounts />
@@ -109,8 +123,8 @@ function Dashboard() {
                         <h4> {events.length} </h4>
                      </div>
                      <div className="mini">
-                        <h4> Convites Enviados</h4>
-                        <h4> X </h4>
+                        <h4> Convites</h4>
+                        <h4> {invites.length} </h4>
                      </div>
                      <div className="mini">
                         <h4> Usuários Online</h4>

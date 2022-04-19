@@ -1,0 +1,56 @@
+.feedReply {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.feedReply .bloco {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.feedReply .bloco .ReplyUnic {
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: rgb(67, 67, 67);
+    padding:10px;
+    border-radius: 6px;
+    margin: 5px 0;
+}
+.feedReply .bloco .ReplyUnic .user {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.feedReply .bloco .ReplyUnic .user .image{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.feedReply .bloco .ReplyUnic .user img{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.feedReply .bloco .ReplyUnic .user h4 {
+    font-weight:500 ;
+    margin-left: 5px;
+}
+.feedReply .bloco .ReplyUnic h5 {
+    font-weight:900 ;
+    margin-left: 30px;
+}
+
+

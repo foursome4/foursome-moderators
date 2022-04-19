@@ -4,39 +4,67 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
-    background-color: blue;
 }
-
-.feed .postIndividual{
+.feed .feed-posts {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
+    padding:60px 0px;
 }
 
-.feed .postIndividual .media{
+.feed .feed-posts .postIndividual{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
+    width: 400px;
     padding: 20px;
-    background-color: aqua;
+    background-color:#000;
+    border-radius: 6px;
+    color: aliceblue;
+    margin: 10px 0;
 }
 
-.feed .postIndividual .media .image {
-    width: 700px;
-    height: 700px;
+.feed .feed-posts .postIndividual .media{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    padding: 10px;
+}
+.feed .feed-posts .postIndividual .media .postText{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 300px;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.feed .feed-posts .postIndividual .media .image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+.feed .feed-posts .postIndividual .media .image img {
+    width: 300px;
+    height: 300px;
     object-fit: cover;
 }
 
 
-.feed .postIndividual .media .movie {
-    width: 700px;
-    height: 700px;
+.feed .feed-posts .postIndividual .media .movie {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+.feed .feed-posts .postIndividual .media .movie video {
+    width: 300px;
+    height: 300px;
     object-fit: cover;
 }
 

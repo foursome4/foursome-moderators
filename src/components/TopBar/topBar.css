@@ -36,3 +36,14 @@
     color: var(--Background);
     margin: 0 10px;
 }
+.topBar .menu button {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 6px;
+    background-color:crimson;
+    color: aliceblue;
+    padding: 5px 10px;
+}

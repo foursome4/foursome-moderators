@@ -1,0 +1,56 @@
+.feedComment {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.feedComment .bloco {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.feedComment .bloco .commentUnic {
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: rgb(21, 21, 21);
+    padding:10px;
+    border-radius: 6px;
+    margin: 5px 0;
+}
+.feedComment .bloco .commentUnic .user {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.feedComment .bloco .commentUnic .user .image{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.feedComment .bloco .commentUnic .user img{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.feedComment .bloco .commentUnic .user h4 {
+    font-weight:500 ;
+    margin-left: 5px;
+}
+.feedComment .bloco .commentUnic h5 {
+    font-weight:900 ;
+    margin-left: 30px;
+}
+
+

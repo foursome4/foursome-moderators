@@ -51,6 +51,7 @@
     flex-wrap: wrap; 
     border: none;
 
+
 }
 
 .dashboard .mini-blocks .mini {
@@ -66,4 +67,5 @@
     background-color: black;
     border-radius: 6px;
     color: var(--Background);
+    margin: 5px;
 }

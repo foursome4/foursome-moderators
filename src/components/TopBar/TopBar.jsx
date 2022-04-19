@@ -1,9 +1,19 @@
 import { Link } from 'react-router-dom';
 import './topBar.css';
 import logo from '../../assets/logo.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/Auth';
 
 
 function TopBar() {
+
+    const {logout} = useContext(AuthContext)
+
+    function handleLogout(e) {
+        e.preventDefault();
+
+        logout()
+    }
     return (
         <div className="content">
             <div className="topBar">
@@ -11,13 +21,15 @@ function TopBar() {
                     <img src={logo} alt="" />
                 </div>
                 <div className="menu">
-                    <a href="/dashboard" > Dashboard</a>
-                    <a href="/feed" > Feed</a>
-                    <a href="" > Convites</a>
-                    <a href="" > Grupos</a>
-                    <a href="" > Foruns</a>
-                    <a href="" > Eventos</a>
-                    <a href="" > Locais</a>
+                    <Link href="/dashboard" > Dashboard</Link>
+                    <Link href="/feed" > Feed</Link>
+                    <Link href="" > Convites</Link>
+                    <Link href="" > Grupos</Link>
+                    <Link href="" > Foruns</Link>
+                    <Link href="" > Eventos</Link>
+                    <Link href="" > Locais</Link>
+
+                    <button onClick={handleLogout}>Sair</button>
                 </div>
             </div>
         </div>
