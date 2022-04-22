@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import api from "../../services/api"
+import { AccountCreatedInvite } from "../AccountCreatedInvite/AccountCreatedInvite"
 import "./invites.css"
 
 function Invites() {
@@ -12,7 +13,9 @@ function Invites() {
         }
 
         loadInvites()
-    })
+    }, [])
+
+    console.log(invites)
     return (
 
         <div className="invitesList">
@@ -27,6 +30,7 @@ function Invites() {
                     </div>
                     <h5>Código: {invite.code}</h5>
                     <h5>Tipo de conta: {invite.type}</h5>
+                    <AccountCreatedInvite mail={invite.email} />
                 </div>
                    )
                 })}
