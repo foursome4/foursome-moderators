@@ -83,6 +83,123 @@ function AuthProvider({children}) {
     }
 
 
+    //Deletando conta
+
+
+async function deleteAccount() {
+    toast.success("Deletendo sua conta")
+    const Local = localStorage.getItem("foursome");
+    const user = JSON.parse(Local);
+    const res = await api.delete(`/accounts/${user.id}`);
+    if(res.status===201) {
+        deleteInformations()
+       
+     } else {
+        toast.error('Falha ao deletar, tente novamente!');
+     }
+}
+
+async function deleteInformations() {
+    const Local = localStorage.getItem("informations-foursome");
+    const user = JSON.parse(Local);
+
+    const res = await api.delete(`/informations/${user.idAccount}`);
+    if(res.status===201) {
+        deleteCharacteristcs()
+       
+     } else {
+        toast.error('Falha ao deletar, tente novamente!');
+     }
+}
+async function deleteCharacteristcs() {
+    const Local = localStorage.getItem("characteritics-foursome");
+    const user = JSON.parse(Local);
+    const res = await api.delete(`/characteristics/${user.idAccount}`);
+    if(res.status===201) {
+        deletePreferences()
+       
+     } else {
+        toast.error('Falha ao deletar, tente novamente!');
+     }
+}
+async function deletePreferences() {
+    const Local = localStorage.getItem("preferences-foursome");
+    const user = JSON.parse(Local);
+
+    const res = await api.delete(`/preferences/${user.idAccount}`);
+    if(res.status===201) {
+        toast.success("Conta deletada com sucesso")
+        logout(user.idAccount)
+       
+     } else {
+        toast.error('Falha ao deletar, tente novamente!');
+     }
+}
+
+//Fim deletando conta
+
+
+// Deletando posts, comentários, respostas, Convites
+
+async function deletePost(id) {
+    const res = await api.delete(`/posts/${id}`);
+    if(res.status===201) {
+        toast.success('Post deletado com sucesso!');
+        window.open(`/feed`,"_self")
+     } else {
+        toast.error('Falha ao deletar, tente novamente!');
+     }
+}
+
+async function deleteComment(id) {
+    const res = await api.delete(`/comments/${id}`);
+    if(res.status===201) {
+        toast.success('Comentário deletado com sucesso!');
+       
+     } else {
+        toast.error('Falha ao deletar, tente novamente!');
+     }
+}
+
+async function deleteReply(id) {
+    const res = await api.delete(`/reply/${id}`);
+    if(res.status===201) {
+        toast.success('Resposta deletada com sucesso!');
+       
+     } else {
+        toast.error('Falha ao deletar, tente novamente!');
+     }
+}
+
+async function deleteInvite(id) {
+    const res = await api.delete(`/invites/${id}`);
+    if(res.status===201) {
+        toast.success('Convite deletado com sucesso!');
+       
+     } else {
+        toast.error('Falha ao deletar, tente novamente!');
+     }
+}
+// fim deletando...
+
+
+
+// Deletando grupo, forum e evento
+async function deleteGroup(id){
+    await api.delete(`/groups/${id}`).then(() => {
+    })
+}
+async function deleteEvents(id){
+    await api.delete(`/events/${id}`).then(() => {
+    })
+}
+async function deleteForuns(id){
+    await api.delete(`/foruns/${id}`).then(() => {
+    })
+}
+
+
+//Fim deletando
 
 
  
@@ -99,7 +216,15 @@ function AuthProvider({children}) {
     return(
         <AuthContext.Provider value={{
             logout,
-            loginSession
+            loginSession,
+            deleteAccount,
+            deletePost,
+            deleteComment,
+            deleteReply,
+            deleteInvite,
+            deleteGroup,
+            deleteEvents,
+            deleteForuns
         }}>
             {children}
         </AuthContext.Provider>
