@@ -1,26 +1,25 @@
+import { useFetch } from '../../../hooks/useFetch';
 import './postVideo.css'
-import { useEffect, useState } from "react"
-import api from '../../../services/api';
+
 
 
 function PostVideo() {
-    const [videos, setVideos] = useState([]);
+    const {data} = useFetch(`/posts/filter/post-video`);
 
-    useEffect(() => {
-        async function loadPostsVideos(){
-            await api.get("/posts/filter/post-video").then((result) =>{
-                setVideos(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-        loadPostsVideos()
-    })
+    
+    if(!data) {
+        return (
+            <h4>Carregando...</h4>
+        )
+    }
+
+
+
     return (
         <div className="block">
         <h4><b>Vídeos</b></h4>
         <div className="informationVideo">
-            {videos.map((video) => {
+            {data?.map((video) => {
                 return(
                     <div className="videos">
                          <h4>{video.username} - {video.idAccount}</h4>
@@ -41,21 +40,18 @@ function PostVideo() {
 
 
 function PostVideoCounter() {
-    const [videosCounter, setVideosCounter] = useState([]);
+    const {data} = useFetch(`/posts/filter/post-video`);
 
-    useEffect(() => {
-        async function loadPostsVideosCounter(){
-            await api.get("/posts/filter/post-video").then((result) =>{
-                setVideosCounter(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-        loadPostsVideosCounter()
-    })
+    
+    if(!data) {
+        return (
+            <h1>Carregando convites</h1>
+        )
+    }
+
     return (
         <>
-            {videosCounter.length}   
+            {data?.length}   
      </>
     )
 }

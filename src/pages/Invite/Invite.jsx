@@ -1,11 +1,11 @@
 import { Invites } from "../../components/Invites/Invites";
-import { TopBar } from "../../components/TopBar/TopBar";
+import Navbar from "../../components/Nav/Navbar";
 import "./invite.css"
 
 function Invite() {
     return (
             <div className="invite">
-                <TopBar />
+                <Navbar />
                 <h1>Lista de convites enviados</h1>
                 <Invites />
             </div>

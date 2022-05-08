@@ -1,36 +1,47 @@
-import { useEffect, useState } from "react"
-import api from "../../services/api"
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/Auth";
+import { useFetch } from "../../hooks/useFetch";
 import { AccountCreatedInvite } from "../AccountCreatedInvite/AccountCreatedInvite"
 import "./invites.css"
 
 function Invites() {
-    const [invites, setInvites] = useState([])
-    useEffect(() => {
-        async function loadInvites() {
-            await api.get("/invites").then((res) => {
-                setInvites(res.data)
-            })
-        }
+    const {deleteInvite} = useContext(AuthContext);
+ 
 
-        loadInvites()
-    }, [])
+    const {data} = useFetch(`/invites`);
 
-    console.log(invites)
+    function handleDeleteInvite(id) {
+        const deletar = window.confirm("Deseja deletar o convite?");
+        if(deletar === true) {
+            deleteInvite(id);
+        } 
+        
+    }
+
+    if(!data) {
+        return (
+            <h1>Carregando convites</h1>
+        )
+    }
+
     return (
 
         <div className="invitesList">
 
-                {invites.map((invite) => {
+                {data?.map((invite) => {
                    return (
                     <div className="invitesUnic">
-                    <h5>E-mail: {invite.email}</h5>
                     <div className="codes">
-                    <h5>Usuário: {invite.username}</h5>
-                    <h5>ID: {invite.idAccount}</h5>
+                    <h5> <b>Enviado por:</b>  {invite.username}</h5>
+                    <h5>-</h5>
+                    <h5><b>ID:</b>  {invite.idAccount}</h5>
                     </div>
-                    <h5>Código: {invite.code}</h5>
-                    <h5>Tipo de conta: {invite.type}</h5>
+                    <h5><b>E-mail:</b>  {invite.email}</h5>
+                    <h5><b>Tipo de conta:</b>  {invite.type}</h5>
                     <AccountCreatedInvite mail={invite.email} />
+                    <div className="buttons">
+                        <button onClick={() => {handleDeleteInvite(invite.id)}}>Deletar convite</button>
+                    </div>
                 </div>
                    )
                 })}
@@ -40,20 +51,21 @@ function Invites() {
 
 
 function InvitesCounter() {
-    const [invites, setInvites] = useState([])
-    useEffect(() => {
-        async function loadInvites() {
-            await api.get("/invites").then((res) => {
-                setInvites(res.data)
-            })
-        }
+    
+    const {data} = useFetch(`/invites`);
 
-        loadInvites()
-    })
+    
+    if(!data) {
+        return (
+            <>Carregando...</>
+        )
+    }
+
+
     return (
 
         <>
-          <h4>{invites.length}</h4>
+          <h4>{data?.length}</h4>
         </>
     )
 }

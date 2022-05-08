@@ -1,26 +1,23 @@
 import './postPhotos.css'
-import { useEffect, useState } from "react"
-import api from '../../../services/api';
+import { useFetch } from '../../../hooks/useFetch';
 
 
 function PostPhotos() {
-    const [photos, setPhotos] = useState([]);
+    const {data} = useFetch(`/posts/filter/post-photo`);
 
-    useEffect(() => {
-        async function loadPostsPhotos(){
-            await api.get("/posts/filter/post-photo").then((result) =>{
-                setPhotos(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-        loadPostsPhotos()
-    })
+    
+    if(!data) {
+        return (
+            <h4>Carregando...</h4>
+        )
+    }
+
+
     return (
         <div className="block">
         <h4><b>Fotos</b></h4>
         <div className="informationPhoto">
-            {photos.map((photo) => {
+            {data?.map((photo) => {
                return (
                 <div className="photos">
                 <h4>{photo.username} - {photo.idAccount}</h4>
@@ -39,21 +36,19 @@ function PostPhotos() {
 
 
 function PostPhotosCounter() {
-    const [photosCounter, setPhotosCounter] = useState([]);
+    const {data} = useFetch(`/posts/filter/post-photo`);
 
-    useEffect(() => {
-        async function loadPostsPhotosCounter(){
-            await api.get("/posts/filter/post-photo").then((result) =>{
-                setPhotosCounter(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-        loadPostsPhotosCounter()
-    })
+    
+    if(!data) {
+        return (
+            <>Carregando...</>
+        )
+    }
+
+
     return (
         <>
-           {photosCounter.length}
+           {data?.length}
         </>
     )
 }

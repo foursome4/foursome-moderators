@@ -1,35 +1,49 @@
-import { useEffect, useState } from "react"
-import api from "../../services/api"
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/Auth";
+import { useFetch } from "../../hooks/useFetch";
 import "./feedReply.css"
 
 function FeedReply({id}) {
-    const [Replys, setReplys] = useState([])
-useEffect(() => {
-    async function loadReplys() {
-        await api.get(`/reply/${id}/`).then((res) => {
-            setReplys(res.data)
-        })
-    }
+    
+    
+    const {deleteReply} = useContext(AuthContext);
 
-    loadReplys()
-})
+const {data} = useFetch(`/reply/${id}/`);
+
+function handleDeleteReply(id) {
+    const deletar = window.confirm("Deseja deletar a Resposta?");
+    if(deletar === true) {
+        deleteReply(id);
+    } 
+    
+}
+
+if(!data) {
+    return (
+        <>Carregando...</>
+    )
+}
+
 
 
     return (
         <div className="feedReply">
-            {Replys.map((Reply) => {
+            {data?.map((Reply) => {
                 return (
                     <div className="bloco" key={Reply.id}>
 
                     <div className="ReplyUnic">
                         <div className="user">
                             <div className="image">
-                                <img src={Reply.avatar} alt="" />
+                                <img src={Reply.avatar} alt="Avatar" />
                             </div>
                             <h4>{Reply.nickname}</h4>
                         </div>
                         <h5>{Reply.text}</h5>
                     </div>
+                    <div className="buttons">
+                    <button onClick={() => {handleDeleteReply(Reply.id)}}>Deletar Resposta</button>
+                   </div>
                     </div>
                 )
             })}

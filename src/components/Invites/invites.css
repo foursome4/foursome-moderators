@@ -15,7 +15,8 @@
     width: 300px;
     padding: 10px;
     margin: 10px;
-    background-color:#fff;
+    background-color: var(--Primary);
+    color: var(--White);
     border-radius: 6px;
 }
 .invitesList .invitesUnic .codes {
@@ -24,4 +25,26 @@
     justify-content: center;
     flex-direction: row;
     width: 100%;
+}
+.invitesList .invitesUnic .codes h5{
+    margin: 3px;
+}
+.invitesList .invitesUnic .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+.invitesList .invitesUnic .buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: red;
+    color: var(--White);
+    border-radius: 6px;
+    border:none;
+    padding: 5px 10px;
+    margin: 10px;
 }

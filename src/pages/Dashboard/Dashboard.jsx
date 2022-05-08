@@ -1,93 +1,22 @@
-import { useEffect, useState } from 'react';
 import { Accounts, AccountsCounter } from '../../components/Boxes/Accounts/Accounts';
 import { PostPhotos, PostPhotosCounter } from '../../components/Boxes/PostPhotos/PostPhotos';
 import { PostVideo, PostVideoCounter } from '../../components/Boxes/PostVideo/PostVideo';
+import { EventsCounter } from '../../components/Counters/EventsCounter/EventsCounter';
+import { ForunsCounter } from '../../components/Counters/ForunsCounter/ForunsCounter';
+import { GroupsCounter } from '../../components/Counters/GroupsCounter/GroupsCounter';
+import { OnlineCounter } from '../../components/Counters/OnlineCounter/OnlineCounter';
 import { InvitesCounter } from '../../components/Invites/Invites';
-import { TopBar } from '../../components/TopBar/TopBar';
-import api from '../../services/api';
+import Navbar from '../../components/Nav/Navbar';
 import './dashboard.css';
 
 function Dashboard() {
     const local = localStorage.getItem("foursome");
     const user = JSON.parse(local)
 
-    const [onlineUsers, setOnlineUsers] = useState([]);
-    const [groups, setGroups] = useState([]);
-    const [foruns, setForuns] = useState([]);
-    const [events, setEvents] = useState([]);
-    const [invites, setInvites] = useState([]);
-
-    useEffect(() => {
-
-
-        async function loadGroups(){
-            await api.get("/groups").then((result) =>{
-                setGroups(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-
-
-        loadGroups();
-    }, [])
-
-    useEffect(() => {
-
-        async function loadForunss(){
-            await api.get("/foruns").then((result) =>{
-                setForuns(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-
-        loadForunss();
-    }, [])
-
-    useEffect(() => {
-
-        async function loadEvents(){
-            await api.get("/events").then((result) =>{
-                setEvents(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-
-        loadEvents();
-    }, [])
-
-    useEffect(() => {
-
-        async function loadOnlineUsers(){
-            await api.get("/online").then((result) =>{
-                setOnlineUsers(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-
-        loadOnlineUsers();
-    }, []);
-
-    useEffect(() => {
-
-        async function loadInvites(){
-            await api.get("/invites").then((result) =>{
-                setInvites(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-
-        loadInvites();
-    }, [])
-
     return (
         <div className="content">
             <div className="dashboard">
-                <TopBar />
+                <Navbar />
                 <div className="mainDashboard">
                 <div className="title">
                     <h3>Olá {user.username}, seja bem-vindo de volta</h3>
@@ -113,15 +42,15 @@ function Dashboard() {
                      </div>
                      <div className="mini">
                         <h4> Grupos criados</h4>
-                         <h4> {groups.length} </h4>
+                         <h4> <GroupsCounter /> </h4>
                      </div>
                      <div className="mini">
                         <h4> Foruns Criados</h4>
-                         <h4> {foruns.length} </h4>
+                         <h4> <ForunsCounter /> </h4>
                      </div>
                      <div className="mini">
                         <h4> Eventos Criados</h4>
-                        <h4> {events.length} </h4>
+                        <h4> <EventsCounter /></h4>
                      </div>
                      <div className="mini">
                         <h4> Convites</h4>
@@ -129,7 +58,7 @@ function Dashboard() {
                      </div>
                      <div className="mini">
                         <h4> Usuários Online</h4>
-                        <h4> {onlineUsers.length} </h4>
+                        <h4> <OnlineCounter /></h4>
                      </div>
                  </div>
                 </div>

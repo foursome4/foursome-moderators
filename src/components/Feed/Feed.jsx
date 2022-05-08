@@ -1,31 +1,38 @@
-import { useEffect, useState } from 'react'
-import api from '../../services/api';
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/Auth';
+import { useFetch } from '../../hooks/useFetch';
 import { DataUser } from '../DataUser/DataUser';
 import { FeedComment } from '../FeedComment/FeedComment';
-import { TopBar } from '../TopBar/TopBar';
+import Navbar from '../Nav/Navbar';
 import './feed.css'
 
 
 
 function Feed() {
-    const [posts, setPosts] = useState([]);
+            const {deletePost} = useContext(AuthContext);
 
-    useEffect(() => {
-        async function loadPosts() {
-            await api.get("posts/all").then((res) => {
-                console.log(res.data);
-                setPosts(res.data);
-            })
-        }
+    const {data} = useFetch(`/posts/all`);
 
-        loadPosts()
-    }, [])
+    function handleDeletePost(id) {
+        const deletar = window.confirm("Deseja deletar a postagem?");
+        if(deletar === true) {
+            deletePost(id);
+        } 
+    }
+    
+    if(!data) {
+        return (
+            <>Carregando...</>
+        )
+    }
+
+
 
     return(
         <div className="feed">
-            <TopBar />
+            <Navbar />
         <div className="feed-posts">
-            {posts.map((post) => {
+            {data?.map((post) => {
                return (
                 <div className="postIndividual" key={post.id}>
                 <DataUser idAccount={post.idAccount} id={post.id}/>
@@ -49,7 +56,9 @@ function Feed() {
                 }
                 </div>
 
-
+                <div className="buttons">
+                    <button onClick={() => {handleDeletePost(post.id)}}>Deletar Postagem</button>
+                </div>
                 <div className="comment">
                         <FeedComment id={post.id} />
                     </div>

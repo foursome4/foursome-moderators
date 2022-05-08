@@ -27,6 +27,29 @@
     margin: 10px 0;
 }
 
+.feed .feed-posts .postIndividual .buttons {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+}
+.feed .feed-posts .postIndividual .buttons button {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: red;
+    padding:10px;
+    border-radius: 6px;
+    margin: 10px 0;
+    border:none;
+    color: var(--white);
+    font-weight: 700;
+}
+
 .feed .feed-posts .postIndividual .media{
     display: flex;
     align-items: center;

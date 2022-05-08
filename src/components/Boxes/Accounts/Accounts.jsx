@@ -1,27 +1,34 @@
 import './accounts.css'
-import { useEffect, useState } from "react"
-import api from '../../../services/api';
+import { useContext } from "react";
+import { AuthContext } from '../../../contexts/Auth';
+import { useFetch } from '../../../hooks/useFetch';
 
 
 function Accounts() {
-    const [accounts, setAccounts] = useState([]);
+    const {deleteAccount} = useContext(AuthContext);
 
-    useEffect(() => {
-        async function loadAccounts(){
-            await api.get("/accounts").then((result) =>{
-                setAccounts(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
+    const {data} = useFetch(`/accounts`);
+    
+    function handleDeleteAccount(id) {
+        const deletar = window.confirm("Deseja deletar a postagem?");
+        if(deletar === true) {
+            deleteAccount(id);
+        } 
+        
+        if(!data) {
+            return (
+                <h4>Carregando...</h4>
+            )
         }
-        loadAccounts()
-    })
+    
+
+    }
     return (
            <div className="block">
                         <h4><b>Usuários cadastrados</b></h4>
                         <div className="informationAccount">
                             {
-                                accounts.map((account) => {
+                                data?.map((account) => {
                                     return(
                                         <div className="account" key={account.id}>
                                             <div className="name">
@@ -34,6 +41,9 @@ function Accounts() {
                                                 <button className='banned'>Banir</button>
                                                 <button className='promote'>Promover</button>
                                             </div>
+                                            <div className="buttons2">
+                                                <button className='banned2' onClick={() => {handleDeleteAccount(account.id)}}>Deletar conta</button>
+                                            </div>
                                         </div>
                                     )
                                 })
@@ -45,20 +55,17 @@ function Accounts() {
 
 
 function AccountsCounter() {
-    const [accountsCounter, setAccountsCounter] = useState([]);
 
-    useEffect(() => {
-        async function loadAccounts(){
-            await api.get("/accounts").then((result) =>{
-                setAccountsCounter(result.data);
-                console.log(result.data)
-                console.log(result.data.length)
-            })
-        }
-        loadAccounts()
-    })
+    const {data} = useFetch(`/accounts`);
+
+    if(!data) {
+        return (
+            <>Carregando...</>
+        )
+    }
+
     return (
-          <>{accountsCounter.length}</>
+          <>{data?.length}</>
     )
 }
 

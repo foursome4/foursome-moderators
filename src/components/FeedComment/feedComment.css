@@ -12,6 +12,28 @@
     justify-content: center;
     flex-direction: column;
 }
+.feedComment .bloco .buttons {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+}
+.feedComment .bloco .buttons button {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: red;
+    padding:10px;
+    border-radius: 6px;
+    margin: 10px 0;
+    border:none;
+    color: var(--white);
+    font-weight: 700;
+}
 .feedComment .bloco .commentUnic {
     width: 90%;
     display: flex;
