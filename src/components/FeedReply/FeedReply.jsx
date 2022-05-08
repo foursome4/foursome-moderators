@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/Auth";
 import { useFetch } from "../../hooks/useFetch";
 import "./feedReply.css"
@@ -13,9 +14,10 @@ const {data} = useFetch(`/reply/${id}/`);
 function handleDeleteReply(id) {
     const deletar = window.confirm("Deseja deletar a Resposta?");
     if(deletar === true) {
+        toast.error(id)
         deleteReply(id);
     } 
-    
+   
 }
 
 if(!data) {

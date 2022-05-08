@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/Auth';
 import { useFetch } from '../../hooks/useFetch';
 import { DataUser } from '../DataUser/DataUser';
@@ -9,9 +9,13 @@ import './feed.css'
 
 
 function Feed() {
-            const {deletePost} = useContext(AuthContext);
+    const {deletePost} = useContext(AuthContext);
 
-    const {data} = useFetch(`/posts/all`);
+    const [followers, setFollowers] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const perPage = 5;
+    const {data} = useFetch(`/posts/all?page=${currentPage}&limit=${perPage}`);
 
     function handleDeletePost(id) {
         const deletar = window.confirm("Deseja deletar a postagem?");
@@ -20,19 +24,39 @@ function Feed() {
         } 
     }
     
-    if(!data) {
-        return (
-            <>Carregando...</>
-        )
-    }
+    useEffect(() => {
+        if(data) {
+            setFollowers(oldFollowers => [...oldFollowers, ...data])
+        }
+  }, [data]);
 
+
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        console.log('Sentinela appears!', currentPage + 1)
+        setCurrentPage((currentValue) => currentValue + 1);
+      }
+    })
+    intersectionObserver.observe(document.querySelector('#sentinela'));
+    return () => intersectionObserver.disconnect();
+  }, []);
+
+
+if(!followers) {
+      return (
+          <div className="load">
+              <h3>Carregando...</h3>
+          </div>
+      )
+  }
 
 
     return(
         <div className="feed">
             <Navbar />
         <div className="feed-posts">
-            {data?.map((post) => {
+            {followers?.map((post) => {
                return (
                 <div className="postIndividual" key={post.id}>
                 <DataUser idAccount={post.idAccount} id={post.id}/>
@@ -65,6 +89,11 @@ function Feed() {
             </div>
                )
             })}
+
+                                <div id="sentinela">
+                                <div className="image">
+                                 <h4>Carregando...</h4>
+                                  </div></div>
 
         </div>
         </div>

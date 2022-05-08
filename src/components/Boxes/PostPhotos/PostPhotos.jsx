@@ -1,23 +1,49 @@
 import './postPhotos.css'
 import { useFetch } from '../../../hooks/useFetch';
+import { useEffect, useState } from 'react';
 
 
 function PostPhotos() {
-    const {data} = useFetch(`/posts/filter/post-photo`);
+    const [followers, setFollowers] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
 
+    const perPage = 5;
+    const {data} = useFetch(`/posts/qtd/post-photo?page=${currentPage}&limit=${perPage}`);
+    console.log(data)
     
-    if(!data) {
-        return (
-            <h4>Carregando...</h4>
-        )
-    }
+    useEffect(() => {
+        if(data) {
+            setFollowers(oldFollowers => [...oldFollowers, ...data])
+        }
+  }, [data]);
+
+
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        console.log('Sentinela appears!', currentPage + 1)
+        setCurrentPage((currentValue) => currentValue + 1);
+      }
+    })
+    intersectionObserver.observe(document.querySelector('#sentinelaPhoto'));
+    return () => intersectionObserver.disconnect();
+  }, []);
+
+
+if(!followers) {
+      return (
+          <div className="load">
+              <h3>Carregando...</h3>
+          </div>
+      )
+  }
 
 
     return (
         <div className="block">
         <h4><b>Fotos</b></h4>
         <div className="informationPhoto">
-            {data?.map((photo) => {
+            {followers?.map((photo) => {
                return (
                 <div className="photos">
                 <h4>{photo.username} - {photo.idAccount}</h4>
@@ -28,8 +54,12 @@ function PostPhotos() {
             </div>
                )
             })}
+
+                <div id="sentinelaPhoto">
+                <div className="image">
+                    <h4>Carregando...</h4>
+                </div></div>
         </div>
-       
     </div>
     )
 }

@@ -1,17 +1,43 @@
+import { useEffect, useState } from 'react';
 import { useFetch } from '../../../hooks/useFetch';
 import './postVideo.css'
 
 
 
 function PostVideo() {
-    const {data} = useFetch(`/posts/filter/post-video`);
+    const [followers, setFollowers] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
 
+    const perPage = 5;
+    const {data} = useFetch(`/posts/qtd/post-video?page=${currentPage}&limit=${perPage}`);
+    console.log(data)
     
-    if(!data) {
-        return (
-            <h4>Carregando...</h4>
-        )
-    }
+    useEffect(() => {
+        if(data) {
+            setFollowers(oldFollowers => [...oldFollowers, ...data])
+        }
+  }, [data]);
+
+
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        console.log('Sentinela appears!', currentPage + 1)
+        setCurrentPage((currentValue) => currentValue + 1);
+      }
+    })
+    intersectionObserver.observe(document.querySelector('#sentinelaVideo'));
+    return () => intersectionObserver.disconnect();
+  }, []);
+
+
+if(!followers) {
+      return (
+          <div className="load">
+              <h3>Carregando...</h3>
+          </div>
+      )
+  }
 
 
 
@@ -19,7 +45,7 @@ function PostVideo() {
         <div className="block">
         <h4><b>Vídeos</b></h4>
         <div className="informationVideo">
-            {data?.map((video) => {
+            {followers?.map((video) => {
                 return(
                     <div className="videos">
                          <h4>{video.username} - {video.idAccount}</h4>
@@ -32,6 +58,10 @@ function PostVideo() {
                     </div>
                 )
             })}
+              <div id="sentinelaVideo">
+                <div className="image">
+                    <h4>Carregando...</h4>
+                </div></div>
         </div>
        
     </div>

@@ -165,7 +165,6 @@ async function deleteReply(id) {
     const res = await api.delete(`/reply/${id}`);
     if(res.status===201) {
         toast.success('Resposta deletada com sucesso!');
-       
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
