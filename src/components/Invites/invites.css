@@ -2,12 +2,43 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     width: 90%;
     padding: 60px 0;
     flex-wrap: wrap;
 }
-.invitesList .invitesUnic {
+.invitesList  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    margin: 10px 0;
+}
+
+.invitesList  .search input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--Black);
+    width: 70%;
+    border-radius: 6px;
+    padding: 10px;
+    border: none;
+}
+
+
+.invitesList .invitListAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 90%;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+.invitesList .invitListAll .invitesUnic {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,24 +50,24 @@
     color: var(--White);
     border-radius: 6px;
 }
-.invitesList .invitesUnic .codes {
+.invitesList .invitListAll .invitesUnic .codes {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     width: 100%;
 }
-.invitesList .invitesUnic .codes h5{
+.invitesList .invitListAll .invitesUnic .codes h5{
     margin: 3px;
 }
-.invitesList .invitesUnic .buttons {
+.invitesList .invitListAll .invitesUnic .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     width: 100%;
 }
-.invitesList .invitesUnic .buttons button{
+.invitesList .invitListAll .invitesUnic .buttons button{
     display: flex;
     align-items: center;
     justify-content: center;

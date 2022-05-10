@@ -7,33 +7,13 @@ import "./invites.css"
 function Invites() {
     const {deleteInvite} = useContext(AuthContext);
 
-    const [followers, setFollowers] = useState([]);
-    const [currentPage, setCurrentPage] = useState(0);
+    
+    const [search, setSearch] = useState('');
 
-    const perPage = 10;
-    const {data} = useFetch(`/invitesqtd?page=${currentPage}&limit=${perPage}`);
+    const {data} = useFetch(`/invites`);
     console.log(data)
     
     
-    useEffect(() => {
-        if(data) {
-            setFollowers(oldFollowers => [...oldFollowers, ...data])
-        }
-  }, [data]);
-
-
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) {
-        console.log('Sentinela appears!', currentPage + 1)
-        setCurrentPage((currentValue) => currentValue + 1);
-      }
-    })
-    intersectionObserver.observe(document.querySelector('#sentinelaInvites'));
-    return () => intersectionObserver.disconnect();
-  }, []);
-
-
 
     function handleDeleteInvite(id) {
         const deletar = window.confirm("Deseja deletar o convite?");
@@ -43,11 +23,23 @@ function Invites() {
         
     }
 
+    let SearchUsers = []
+    const searchLower = search.toLowerCase()
+
+    if(data) {
+        SearchUsers = data?.filter((informations) => informations.email.toLowerCase().includes(searchLower))
+    }
+
+
     return (
 
         <div className="invitesList">
+                          <div className="search">
+                          <input type="text" placeholder='Buscar usuário' value={search.toLowerCase()} onChange={(e) => setSearch(e.target.value)}/>
+                        </div>
 
-                {followers?.map((invite) => {
+<div className="invitListAll">
+                {SearchUsers?.map((invite) => {
                    return (
                     <div className="invitesUnic">
                     <div className="codes">
@@ -64,12 +56,7 @@ function Invites() {
                 </div>
                    )
                 })}
-
-                <div id="sentinelaInvites">
-                <div className="image">
-                    <h4>Carregando...</h4>
-                </div></div>
-
+</div>
 
         </div>
     )
