@@ -1,28 +1,24 @@
-import { useEffect, useState } from "react"
-import api from "../../services/api"
+import { useFetch } from "../../hooks/useFetch";
 
 function AccountCreatedInvite({mail}) {
     console.log(mail)
 
-    const [account, setAccount] = useState([])
+    const {data} = useFetch(`/accounts/find/${mail}`);
+    console.log(data)
 
-    useEffect(() => {
-        async function loadAccountEmail() {
-            await api.get(`/accounts/find/${mail}`).then((res) => {
-                setAccount(res.data[0])
-                console.log(res.data[0])
-                console.log(res.data)
-            })
-        }
-
-        loadAccountEmail()
-     },[])
+    if(!data) {
+        return (
+            <div className="load">
+                <h5>Carregando...</h5>
+            </div>
+        )
+    }
 
 
 
     return (
         <div className="account">
-            <h5><b>{account === undefined || account === "" ? "Sem conta criada" : `Conta criada com o id: ${account.id}`}</b></h5>
+            <h5><b>{data[0] === undefined || data[0] === "" ? "Sem conta criada" : `Conta criada com o id: ${data[0].id}`}</b></h5>
         </div>
     )
 }
