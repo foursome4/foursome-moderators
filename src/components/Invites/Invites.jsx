@@ -34,6 +34,7 @@ function Invites() {
     return (
 
         <div className="invitesList">
+                <h5>Total de convites: {SearchUsers.length}</h5>
                           <div className="search">
                           <input type="text" placeholder='Buscar usuário' value={search.toLowerCase()} onChange={(e) => setSearch(e.target.value)}/>
                         </div>
