@@ -1,5 +1,5 @@
 import './accounts.css'
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from '../../../contexts/Auth';
 import { useFetch } from '../../../hooks/useFetch';
 
@@ -7,28 +7,67 @@ import { useFetch } from '../../../hooks/useFetch';
 function Accounts() {
     const {deleteAccount} = useContext(AuthContext);
 
-    const {data} = useFetch(`/accounts`);
+        const [search, setSearch] = useState('');
+        const [type, setType] = useState('username');
+        const {data} = useFetch(`accounts`);
+        console.log(data)
+        
+        
+
+
+      let SearchUsers = []
+      const searchLower = search.toLowerCase()
+  
+      if(data) {
+        type === "username" ? 
+          SearchUsers = data?.filter((informations) => informations.username.toLowerCase().includes(searchLower))
+          :
+          SearchUsers = data?.filter((informations) => informations.email.toLowerCase().includes(searchLower))
+      }
+  
     
-    function handleDeleteAccount(id) {
+
+      function handleDeleteAccount(id) {
         const deletar = window.confirm("Deseja deletar a postagem?");
         if(deletar === true) {
             deleteAccount(id);
         } 
-        
-        if(!data) {
-            return (
-                <h4>Carregando...</h4>
-            )
-        }
-    
-
     }
+
+    function handleTypeSearch(e) {
+        e.preventDefault();
+
+        if(type === "username") {
+            setType("email")
+        } else {
+                setType("username")
+            }
+    }
+    
+    if(!data) {
+          return (
+              <div className="load">
+                  <h3>Carregando...</h3>
+              </div>
+          )
+      }
+
+
     return (
            <div className="block">
-                        <h4><b>Usuários cadastrados</b></h4>
+                        <h4><b>Usuários cadastrados </b></h4>
+
+
                         <div className="informationAccount">
+                        <div className="search">
+                            <div className="buttons">
+                            <button className={type === "username" ? "" : "selected"} onClick={handleTypeSearch}>Nome de usuário</button>
+                            <button className={type === "email" ? "" : "selected"} onClick={handleTypeSearch}>E-mail</button>
+                            </div>
+                          <input type="text" placeholder='Buscar usuário' value={search.toLowerCase()} onChange={(e) => setSearch(e.target.value)}/>
+                        </div>
                             {
-                                data?.map((account) => {
+                                SearchUsers?.map((account) => {
                                     return(
                                         <div className="account" key={account.id}>
                                             <div className="name">
@@ -48,7 +87,10 @@ function Accounts() {
                                     )
                                 })
                             }
+
+
                         </div>
+
                     </div>
     )
 }

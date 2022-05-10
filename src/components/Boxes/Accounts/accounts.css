@@ -1,20 +1,20 @@
 .block {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     width: 400px;
     height: 370px;
     padding: 10px;
     color: var(--Background);
     flex-wrap: wrap; 
-    background-color: black;
+    background-color: rgb(225, 0, 0);
     border-radius: 6px;
     color: var(--Background);
 }
 
 .block h4 {
-    color: var(--Background);
+    color: var(--Primary);
 }
 
 .block .informationAccount {
@@ -22,11 +22,70 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    color: var(--Background);
+    color: var(--Background2);
     overflow-y: scroll;
     width: 90%;
     border-radius: 6px;
     height: 90%;
+}
+
+.block .informationAccount .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    margin: 10px 0;
+}
+
+.block .informationAccount .search .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.block .informationAccount .search .buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 10px;
+    background-color: var(--Primary);
+    color: var(--White);
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px;
+    border: none;
+}
+.block .informationAccount .search .buttons .selected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    margin:0 10px;
+    background-color: var(--White);
+    color: var(--Primary);
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px;
+    border: none;
+}
+
+.block .informationAccount .search input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--Black);
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px;
+    border: none;
 }
 
 .block .informationAccount::-webkit-scrollbar {

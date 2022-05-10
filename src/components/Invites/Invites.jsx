@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/Auth";
 import { useFetch } from "../../hooks/useFetch";
 import { AccountCreatedInvite } from "../AccountCreatedInvite/AccountCreatedInvite"
@@ -6,9 +6,34 @@ import "./invites.css"
 
 function Invites() {
     const {deleteInvite} = useContext(AuthContext);
- 
 
-    const {data} = useFetch(`/invites`);
+    const [followers, setFollowers] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const perPage = 10;
+    const {data} = useFetch(`/invitesqtd?page=${currentPage}&limit=${perPage}`);
+    console.log(data)
+    
+    
+    useEffect(() => {
+        if(data) {
+            setFollowers(oldFollowers => [...oldFollowers, ...data])
+        }
+  }, [data]);
+
+
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        console.log('Sentinela appears!', currentPage + 1)
+        setCurrentPage((currentValue) => currentValue + 1);
+      }
+    })
+    intersectionObserver.observe(document.querySelector('#sentinelaInvites'));
+    return () => intersectionObserver.disconnect();
+  }, []);
+
+
 
     function handleDeleteInvite(id) {
         const deletar = window.confirm("Deseja deletar o convite?");
@@ -18,17 +43,11 @@ function Invites() {
         
     }
 
-    if(!data) {
-        return (
-            <h1>Carregando convites</h1>
-        )
-    }
-
     return (
 
         <div className="invitesList">
 
-                {data?.map((invite) => {
+                {followers?.map((invite) => {
                    return (
                     <div className="invitesUnic">
                     <div className="codes">
@@ -45,6 +64,13 @@ function Invites() {
                 </div>
                    )
                 })}
+
+                <div id="sentinelaInvites">
+                <div className="image">
+                    <h4>Carregando...</h4>
+                </div></div>
+
+
         </div>
     )
 }

@@ -86,51 +86,51 @@ function AuthProvider({children}) {
     //Deletando conta
 
 
-async function deleteAccount() {
+async function deleteAccount(id) {
     toast.success("Deletendo sua conta")
     const Local = localStorage.getItem("foursome");
     const user = JSON.parse(Local);
-    const res = await api.delete(`/accounts/${user.id}`);
+    const res = await api.delete(`/accounts/${id}`);
     if(res.status===201) {
-        deleteInformations()
+        toast.info("Deletando informações") 
+        deleteInformations(id)
        
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
 }
 
-async function deleteInformations() {
+async function deleteInformations(id) {
     const Local = localStorage.getItem("informations-foursome");
     const user = JSON.parse(Local);
 
-    const res = await api.delete(`/informations/${user.idAccount}`);
+    const res = await api.delete(`/informations/${id}`);
     if(res.status===201) {
-        deleteCharacteristcs()
+        deleteCharacteristcs(id)
        
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
 }
-async function deleteCharacteristcs() {
+async function deleteCharacteristcs(id) {
     const Local = localStorage.getItem("characteritics-foursome");
     const user = JSON.parse(Local);
-    const res = await api.delete(`/characteristics/${user.idAccount}`);
+    const res = await api.delete(`/characteristics/${id}`);
     if(res.status===201) {
-        deletePreferences()
+        deletePreferences(id)
        
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
 }
-async function deletePreferences() {
+async function deletePreferences(id) {
     const Local = localStorage.getItem("preferences-foursome");
     const user = JSON.parse(Local);
 
-    const res = await api.delete(`/preferences/${user.idAccount}`);
+    const res = await api.delete(`/preferences/${id}`);
     if(res.status===201) {
-        toast.success("Conta deletada com sucesso")
-        logout(user.idAccount)
-       
+        toast.success("Conta deletada com sucesso")   ;
+        window.open("/", "_self")    
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
