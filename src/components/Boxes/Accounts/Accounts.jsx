@@ -19,10 +19,9 @@ function Accounts() {
       const searchLower = search.toLowerCase()
   
       if(data) {
-        type === "username" ? 
-          SearchUsers = data?.filter((informations) => informations.username.toLowerCase().includes(searchLower))
-          :
-          SearchUsers = data?.filter((informations) => informations.email.toLowerCase().includes(searchLower))
+          SearchUsers = data?.filter((informations) => informations.username.toLowerCase().includes(searchLower)
+                                                        || informations.email.toLowerCase().includes(searchLower)
+                                                        || informations.id.toLowerCase().includes(searchLower) )
       }
   
     
@@ -60,11 +59,11 @@ function Accounts() {
 
                         <div className="informationAccount">
                         <div className="search">
-                            <div className="buttons">
+                            {/* <div className="buttons">
                             <button className={type === "username" ? "" : "selected"} onClick={handleTypeSearch}>Nome de usuário</button>
                             <button className={type === "email" ? "" : "selected"} onClick={handleTypeSearch}>E-mail</button>
-                            </div>
-                          <input type="text" placeholder='Buscar usuário' value={search.toLowerCase()} onChange={(e) => setSearch(e.target.value)}/>
+                            </div> */}
+                          <input type="text" placeholder='Buscar usuário, id ou e-mail' value={search.toLowerCase()} onChange={(e) => setSearch(e.target.value)}/>
                         </div>
                             {
                                 SearchUsers?.map((account) => {
