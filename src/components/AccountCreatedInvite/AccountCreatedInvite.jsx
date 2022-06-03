@@ -1,10 +1,8 @@
 import { useFetch } from "../../hooks/useFetch";
 
 function AccountCreatedInvite({mail}) {
-    console.log(mail)
 
     const {data} = useFetch(`/accounts/find/${mail}`);
-    console.log(data)
 
     if(!data) {
         return (

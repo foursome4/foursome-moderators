@@ -27,6 +27,26 @@
     padding: 10px;
     border: none;
 }
+.invitesList  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.invitesList  .buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--Primary);
+    border-radius: 6px;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--White);
+    margin: 10px;
+}
 
 
 .invitesList .invitListAll {
