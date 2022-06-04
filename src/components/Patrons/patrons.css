@@ -1,0 +1,101 @@
+.patronsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    padding: 60px 0;
+    flex-wrap: wrap;
+}
+.patronsList  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    margin: 10px 0;
+}
+
+.patronsList  .search input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--Black);
+    width: 70%;
+    border-radius: 6px;
+    padding: 10px;
+    border: none;
+}
+.patronsList  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.patronsList  .buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--Primary);
+    border-radius: 6px;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--White);
+    margin: 10px;
+}
+
+
+.patronsList .patronsListAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 90%;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+.patronsList .patronsListAll .patronsUnic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--Primary);
+    color: var(--White);
+    border-radius: 6px;
+}
+.patronsList .patronsListAll .patronsUnic .codes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+.patronsList .patronsListAll .patronsUnic .codes h5{
+    margin: 3px;
+}
+.patronsList .patronsListAll .patronsUnic .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+.patronsList .patronsListAll .patronsUnic .buttons button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: red;
+    color: var(--White);
+    border-radius: 6px;
+    border:none;
+    padding: 5px 10px;
+    margin: 10px;
+}

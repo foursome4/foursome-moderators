@@ -41,6 +41,9 @@ function Invites() {
     },[])
     
 console.log(informationsInvites)
+
+
+
     
 
     function handleDeleteInvite(id) {
@@ -78,6 +81,19 @@ console.log(informationsInvites)
 
     const filterInvites = filter === "All" ? SearchUsers : filter === "Yes" ? invitesAccountsCreate2 : filter === "Not" ? invitesAccountsNotCreate2 : ""
 
+    function deleAllConvites(e) {
+        e.preventDefault();
+        invitesAccountsNotCreate.forEach((email) => {
+            console.log(email.email)
+            console.log(email.id)
+            deleteInvite(email.id);
+        })
+
+        window("/invites", "_self")
+    }
+
+
+
     return (
 
         <div className="invitesList">
@@ -86,6 +102,7 @@ console.log(informationsInvites)
                 <button onClick={handleSelectFilter}>Todos</button>
                 <button onClick={handleSelectFilterYes}>Com conta</button>
                 <button onClick={handleSelectFilterNot}>Sem conta</button>
+                {/* <button onClick={deleAllConvites}>Deletar Todos sem conta</button> */}
                 </div>
                           <div className="search">
                           <input type="text" placeholder='Buscar usuário' value={search.toLowerCase()} onChange={(e) => setSearch(e.target.value)}/>

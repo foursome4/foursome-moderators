@@ -203,3 +203,18 @@
     width: 80%;
     height: 30px;
 }
+.block .informationAccount .account .buttons2 .promote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: blue;
+    color: aliceblue;
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    margin: 3px 3px;
+    font-weight: 700;
+    width: 80%;
+    height: 30px;
+}

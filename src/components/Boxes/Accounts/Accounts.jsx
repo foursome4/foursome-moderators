@@ -32,6 +32,9 @@ function Accounts() {
             deleteAccount(id);
         } 
     }
+      function handleViewPatron(id) {
+       window.open(`/patron/${id}`, "_self")
+    }
 
     function handleTypeSearch(e) {
         e.preventDefault();
@@ -78,6 +81,9 @@ function Accounts() {
                                                 <button className='blocked'>Bloquear</button>
                                                 <button className='banned'>Banir</button>
                                                 <button className='promote'>Promover</button>
+                                            </div>
+                                            <div className="buttons2">
+                                                <button className='promote' onClick={() => {handleViewPatron(account.id)}}>Ver Apadrinhados</button>
                                             </div>
                                             <div className="buttons2">
                                                 <button className='banned2' onClick={() => {handleDeleteAccount(account.id)}}>Deletar conta</button>

@@ -2,6 +2,7 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import { Feed } from '../components/Feed/Feed';
 import { Dashboard } from '../pages/Dashboard/Dashboard';
 import { Invite } from '../pages/Invite/Invite';
+import { Patron } from '../pages/Patron/Patron';
 
 import {SignIn} from "../pages/SignIn/SignIn"
 
@@ -25,6 +26,8 @@ function PrivateRoute({children} ) {
                     element={ <PrivateRoute> <Feed/> </PrivateRoute>} />
             <Route path="/invites"
                     element={ <PrivateRoute> <Invite /> </PrivateRoute>} />
+            <Route path="/patron/:id"
+                    element={ <PrivateRoute> <Patron /> </PrivateRoute>} />
            
             </Routes>
            
