@@ -71,6 +71,24 @@ function handleLogout(e) {
       <li>
       <a href="/invites" > Convites</a>
       </li>
+      <li>
+      <a href="/accounts" > Contas</a>
+      </li>
+      <li>
+      <a href="/events" > Eventos</a>
+      </li>
+      <li>
+      <a href="/groups" > Grupos</a>
+      </li>
+      <li>
+      <a href="/foruns" > Foruns</a>
+      </li>
+      <li>
+      <a href="/plains" > Planos</a>
+      </li>
+      <li>
+      <a href="/payments" > Pagamentos</a>
+      </li>
       <button onClick={handleLogout}>Sair</button>
     </Ul>
   )

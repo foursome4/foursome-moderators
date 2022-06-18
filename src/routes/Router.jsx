@@ -3,6 +3,8 @@ import { Feed } from '../components/Feed/Feed';
 import { Dashboard } from '../pages/Dashboard/Dashboard';
 import { Invite } from '../pages/Invite/Invite';
 import { Patron } from '../pages/Patron/Patron';
+import { Payments } from '../pages/Payments/Payments';
+import { Plains } from '../pages/Plains/Plains';
 
 import {SignIn} from "../pages/SignIn/SignIn"
 
@@ -28,6 +30,10 @@ function PrivateRoute({children} ) {
                     element={ <PrivateRoute> <Invite /> </PrivateRoute>} />
             <Route path="/patron/:id"
                     element={ <PrivateRoute> <Patron /> </PrivateRoute>} />
+            <Route path="/plains"
+                    element={ <PrivateRoute> <Plains /> </PrivateRoute>} />
+            <Route path="/payments"
+                    element={ <PrivateRoute> <Payments /> </PrivateRoute>} />
            
             </Routes>
            

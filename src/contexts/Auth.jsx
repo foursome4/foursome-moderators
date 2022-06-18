@@ -145,7 +145,7 @@ async function deletePost(id) {
     const res = await api.delete(`/posts/${id}`);
     if(res.status===201) {
         toast.success('Post deletado com sucesso!');
-        window.open(`/feed`,"_self")
+        window.location.reload(false)
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
@@ -155,7 +155,7 @@ async function deleteComment(id) {
     const res = await api.delete(`/comments/${id}`);
     if(res.status===201) {
         toast.success('Comentário deletado com sucesso!');
-       
+        window.location.reload(false)
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
@@ -165,6 +165,7 @@ async function deleteReply(id) {
     const res = await api.delete(`/reply/${id}`);
     if(res.status===201) {
         toast.success('Resposta deletada com sucesso!');
+        window.location.reload(false)
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
@@ -174,7 +175,7 @@ async function deleteInvite(id) {
     const res = await api.delete(`/invites/${id}`);
     if(res.status===201) {
         toast.success('Convite deletado com sucesso!');
-       
+        window.location.reload(false)
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
@@ -186,14 +187,17 @@ async function deleteInvite(id) {
 // Deletando grupo, forum e evento
 async function deleteGroup(id){
     await api.delete(`/groups/${id}`).then(() => {
+        window.location.reload(false)
     })
 }
 async function deleteEvents(id){
     await api.delete(`/events/${id}`).then(() => {
+        window.location.reload(false)
     })
 }
 async function deleteForuns(id){
     await api.delete(`/foruns/${id}`).then(() => {
+        window.location.reload(false)
     })
 }
 

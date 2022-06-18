@@ -1,11 +1,20 @@
 import './postPhotos.css'
 import { useFetch } from '../../../hooks/useFetch';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../contexts/Auth';
 
 
 function PostPhotos() {
+    const {deletePost} = useContext(AuthContext);
     const [followers, setFollowers] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
+
+    function handleDeletePost(id) {
+        const deletar = window.confirm("Deseja deletar a postagem?");
+        if(deletar === true) {
+            deletePost(id);
+        } 
+    }
 
     const perPage = 5;
     const {data} = useFetch(`/posts/qtd/post-photo?page=${currentPage}&limit=${perPage}`);
@@ -50,7 +59,7 @@ if(!followers) {
                 <div className="image">
                 <img src={photo.link} alt={`Post Foto ${photo.username}`} />
                 </div>
-                <button>Deletar</button>
+                <button onClick={() => {handleDeletePost(photo.id)}}>Deletar</button>
             </div>
                )
             })}
