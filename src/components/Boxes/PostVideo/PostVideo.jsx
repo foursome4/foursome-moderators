@@ -19,7 +19,6 @@ function PostVideo() {
 
     const perPage = 5;
     const {data} = useFetch(`/posts/qtd/post-video?page=${currentPage}&limit=${perPage}`);
-    console.log(data)
     
     useEffect(() => {
         if(data) {

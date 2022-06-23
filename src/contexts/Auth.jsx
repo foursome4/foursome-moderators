@@ -207,11 +207,11 @@ async function deleteForuns(id){
 
  
 
-    function logout() {
+    async function logout(idAccount) {
         localStorage.removeItem("foursome");
         localStorage.removeItem("informations-foursome");
-        setUser(null);
-        window.open("/","_self");
+        await api.delete(`/online/${idAccount}`)
+        window.location.reload(false)
     }
 
  

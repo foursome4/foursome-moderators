@@ -18,7 +18,7 @@ function PostPhotos() {
 
     const perPage = 5;
     const {data} = useFetch(`/posts/qtd/post-photo?page=${currentPage}&limit=${perPage}`);
-    console.log(data)
+
     
     useEffect(() => {
         if(data) {

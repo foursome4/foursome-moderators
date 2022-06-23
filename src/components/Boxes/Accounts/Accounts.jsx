@@ -10,8 +10,7 @@ function Accounts() {
         const [search, setSearch] = useState('');
         const [type, setType] = useState('username');
         const {data} = useFetch(`accounts`);
-        console.log(data)
-        
+      
         
  
 

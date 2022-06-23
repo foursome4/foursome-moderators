@@ -75,6 +75,9 @@ function handleLogout(e) {
       <a href="/accounts" > Contas</a>
       </li>
       <li>
+      <a href="/notifications" > Notificações</a>
+      </li>
+      <li>
       <a href="/events" > Eventos</a>
       </li>
       <li>
