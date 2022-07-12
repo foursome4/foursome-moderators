@@ -82,10 +82,41 @@ function AuthProvider({children}) {
         
     }
 
+    // Resend Email 
+    async function resendMail(id, email,code, idAccount, username, name, phone, type) {
+        const mail = email;
+        const patronNickname = username;
+        const patron = idAccount
+        const active = true
+        const resend = true
+        const data = {mail, code, patron, patronNickname, name, type}
+        const data2 = {email, code, idAccount, username, name, phone, type, active, resend}
+
+        console.log(data)
+        console.log(data2)
+        await api.post("/mail/reinvite", data).then(async res => {
+            if(res.status === 200) {
+                toast.success("E-mail Reenviado com sucesso!")
+            }
+
+            await api.patch(`/invites/${id}`, data2).then(async res => {
+                if(res.status === 201) {
+                    toast.success("Convite alterado com sucesso!")
+                }
+            }).catch(error => {
+                console.log("Email não reenviado" + error)
+                toast.error("Email não reenviado")
+            }) 
+
+        }).catch(error => {
+            console.log("Email não reenviado" + error)
+            toast.error("Email não reenviado")
+        }) 
+
+    }
+
 
     //Deletando conta
-
-
 async function deleteAccount(id) {
     toast.success("Deletendo sua conta")
     const Local = localStorage.getItem("foursome");
@@ -227,7 +258,8 @@ async function deleteForuns(id){
             deleteInvite,
             deleteGroup,
             deleteEvents,
-            deleteForuns
+            deleteForuns,
+            resendMail
         }}>
             {children}
         </AuthContext.Provider>

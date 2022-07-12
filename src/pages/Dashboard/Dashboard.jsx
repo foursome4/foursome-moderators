@@ -23,25 +23,17 @@ function Dashboard() {
     useEffect(() => {
         async function onlineUsers() {
             const res = await api.get("online");
-            console.log("Oline");
-            console.log(res.data)
 
             res.data.forEach((user) => {
                 async function loadInformations() {
-                    console.log(user.idAccount)
                     await api.get(`/datereadlogin/${user.idAccount}`).then((res) => {
       
-                        console.log(res.data[0].DateReadLogin)
                         var d1 = res.data[0] === undefined ? new Date(user.created_at) : new Date(res.data[0].DateReadLogin);
                         var d2 = new Date();
-                        console.log(d1)
-                        console.log(d2)
                         var diff = moment(d2,"DD/MM/YYYY HH:mm:ss").diff(moment(d1,"DD/MM/YYYY HH:mm:ss"));
-                        console.log(diff)
                         var valor = moment.duration(diff).asDays();
-                        console.log(valor)
                         var dias = Math.round(valor, 1);
-                        console.log(dias)
+
 
                           const dados = {
                               idAccount: user.idAccount,
@@ -49,7 +41,6 @@ function Dashboard() {
                               daysOnline: dias        
                           }
 
-                          console.log(dados)
                           
                           setOnline(oldOnline => [...oldOnline, dados])
 
@@ -71,7 +62,6 @@ function Dashboard() {
 
 
     const myFilter = online.filter((user) => user.daysOnline > 0);
-    console.log(myFilter)
     function deleteUsersOnline() {
         myFilter.forEach((user) => {
             logout(user.idAccount)
@@ -79,7 +69,6 @@ function Dashboard() {
     }
 
     function StartFunction() {
-        console.log("Starting")
         setTimeout(console.log(new Date()), 500)
     }
     
