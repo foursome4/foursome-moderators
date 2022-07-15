@@ -13,6 +13,7 @@ import './dashboard.css';
 import moment from 'moment';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/Auth';
+import { toast } from 'react-toastify';
 
 function Dashboard() {
     const {logout} = useContext(AuthContext)
@@ -62,17 +63,32 @@ function Dashboard() {
 
 
     const myFilter = online.filter((user) => user.daysOnline > 0);
+    setInterval(function () { 
+        console.log(myFilter);
+        if(myFilter.length === 0) {
+            console.log("Sem registros para deletar")
+            return;
+        }
+
+      deleteUsersOnline();
+     }, 960000);
+
     function deleteUsersOnline() {
-        myFilter.forEach((user) => {
-            logout(user.idAccount)
+        console.log("Deletando registros")
+        myFilter.forEach(async (users) => {
+            if(users.idAccount === user.id) {
+                console.log("Meu Id, identificado")
+                return;
+            }
+
+            await api.delete(`/online/${users.idAccount}`).then((res) => {
+                console.log(`Usuário deslogado: ${users.idAccount}`)
+            }).catch((error) => {
+                console.log("Não deslogado")
+                console.log(error)
+            })
          })
     }
-
-    function StartFunction() {
-        setTimeout(console.log(new Date()), 500)
-    }
-    
-    StartFunction()
 
     return (
         <div className="content">
