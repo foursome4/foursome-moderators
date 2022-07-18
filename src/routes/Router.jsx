@@ -1,6 +1,6 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 import { Feed } from '../components/Feed/Feed';
-import { Accounts } from '../pages/Accounts/Notifications';
+import { Accounts } from '../pages/Accounts/Accounts';
 import { Dashboard } from '../pages/Dashboard/Dashboard';
 import { Events } from '../pages/Events/Events';
 import { Foruns } from '../pages/Foruns/Foruns';

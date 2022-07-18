@@ -106,36 +106,52 @@ function Dashboard() {
 
                  <div className="mini-blocks">
                      <div className="mini">
-                        <h4> Contas Criadas</h4>
-                        <h4> <AccountsCounter /> </h4>
+                        <h5> Contas Criadas</h5>
+                       <AccountsCounter />
                      </div>
                      <div className="mini">
-                        <h4> Fotos Postadas</h4>
-                        <h4> <PostPhotosCounter /> </h4>
+                        <h5> Contas Aprovadas</h5>
+                       <AccountsCounter />
                      </div>
                      <div className="mini">
-                        <h4> Videos postados</h4>
-                        <h4> <PostVideoCounter /> </h4>
+                        <h5> Contas Pendentes</h5>
+                        <AccountsCounter /> 
                      </div>
                      <div className="mini">
-                        <h4> Grupos criados</h4>
-                         <h4> <GroupsCounter /> </h4>
+                        <h5> Fotos Postadas</h5>
+                        <PostPhotosCounter />
                      </div>
                      <div className="mini">
-                        <h4> Foruns Criados</h4>
-                         <h4> <ForunsCounter /> </h4>
+                        <h5> Videos postados</h5>
+                     <PostVideoCounter /> 
                      </div>
                      <div className="mini">
-                        <h4> Eventos Criados</h4>
-                        <h4> <EventsCounter /></h4>
+                        <h5> Grupos criados</h5>
+                          <GroupsCounter /> 
                      </div>
                      <div className="mini">
-                        <h4> Convites</h4>
-                        <h4> <InvitesCounter /> </h4>
+                        <h5> Foruns Criados</h5>
+                          <ForunsCounter /> 
                      </div>
                      <div className="mini">
-                        <h4> Usuários Online</h4>
-                        <h4> <OnlineCounter /></h4>
+                        <h5> Eventos Criados</h5>
+                       <EventsCounter />
+                     </div>
+                     <div className="mini">
+                        <h5> Eventos Aprovados</h5>
+                      <EventsCounter />
+                     </div>
+                     <div className="mini">
+                        <h5> Eventos Pendentes</h5>
+                        <EventsCounter />
+                     </div>
+                     <div className="mini">
+                        <h5> Convites</h5>
+                        <InvitesCounter /> 
+                     </div>
+                     <div className="mini">
+                        <h5> Usuários Online</h5>
+                        <OnlineCounter />
                      </div>
                  </div>
                 </div>

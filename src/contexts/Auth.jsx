@@ -116,6 +116,18 @@ function AuthProvider({children}) {
     }
 
 
+    async function updateAccount(id, país, username, role, type, email, phone, online, patron, nickname, avatar,
+        cover, relationship, city, uf, cep, latitude, longitude, recommendation, status) {
+        const data = {país, username, role, type, email, phone, online, patron, nickname, avatar,
+            cover, relationship, city, uf, cep, latitude, longitude, recommendation, status}
+            console.log(data)
+    await   api.patch(`/accounts/${id}`, data).then(async res => {
+        toast.success("Conta Aprovada")
+    }).catch(error => {
+        toast.error("Falha na aprovação")
+    })
+}
+
     //Deletando conta
 async function deleteAccount(id) {
     toast.success("Deletendo sua conta")
@@ -125,40 +137,40 @@ async function deleteAccount(id) {
     if(res.status===201) {
         toast.info("Deletando informações") 
         deleteInformations(id)
-       
+        
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
 }
 
-async function deleteInformations(id) {
+async function deleteInformations(idAccount) {
     const Local = localStorage.getItem("informations-foursome");
     const user = JSON.parse(Local);
 
-    const res = await api.delete(`/informations/${id}`);
+    const res = await api.delete(`/informations/${idAccount}`);
     if(res.status===201) {
-        deleteCharacteristcs(id)
+        deleteCharacteristcs(idAccount)
        
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
 }
-async function deleteCharacteristcs(id) {
+async function deleteCharacteristcs(idAccount) {
     const Local = localStorage.getItem("characteritics-foursome");
     const user = JSON.parse(Local);
-    const res = await api.delete(`/characteristics/${id}`);
+    const res = await api.delete(`/characteristics/${idAccount}`);
     if(res.status===201) {
-        deletePreferences(id)
+        deletePreferences(idAccount)
        
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
 }
-async function deletePreferences(id) {
+async function deletePreferences(idAccount) {
     const Local = localStorage.getItem("preferences-foursome");
     const user = JSON.parse(Local);
 
-    const res = await api.delete(`/preferences/${id}`);
+    const res = await api.delete(`/preferences/${idAccount}`);
     if(res.status===201) {
         toast.success("Conta deletada com sucesso")   ;
         window.open("/", "_self")    
@@ -169,6 +181,22 @@ async function deletePreferences(id) {
 
 //Fim deletando conta
 
+// Emails 
+
+async function emailAccountRecused(email) {
+    await api.post("/mail/accountrecused", email).then((response) => {
+        toast.success("Email enviado");
+    })
+
+    console.log(email)
+}
+async function emailAccountAproved(email) {
+    await api.post("/mail/accountaproved", email).then((response) => {
+        toast.success("Email enviado");
+    })
+
+    console.log(email)
+}
 
 // Deletando posts, comentários, respostas, Convites
 
@@ -259,7 +287,10 @@ async function deleteForuns(id){
             deleteGroup,
             deleteEvents,
             deleteForuns,
-            resendMail
+            resendMail,
+            emailAccountRecused,
+            emailAccountAproved,
+            updateAccount
         }}>
             {children}
         </AuthContext.Provider>

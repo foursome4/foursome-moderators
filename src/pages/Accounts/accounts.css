@@ -25,7 +25,7 @@
 .accounts .accounts-list .unic {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
     width: 80%;
     padding: 15px;
@@ -33,6 +33,57 @@
     border-radius: 6px;
     background-color: var(--White);
     color: var(--Primary);
+    flex-wrap: wrap;
+}
+
+.accounts .accounts-list .unic .avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: center;
+}
+.accounts .accounts-list .unic .avatar img {
+    width: 100px;
+    height: 100px;
+    object-fit: center;
+}
+
+.accounts .accounts-list .unic .text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 300px;
+    height: 100px;
+}
+.accounts .accounts-list .unic .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.accounts .accounts-list .unic .buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px;
+    background-color: var(--Button);
+    color: var(--White);
+}
+.accounts .accounts-list .unic .buttons .delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px;
+    background-color: Red;
+    color: var(--White);
 }
 
 

@@ -55,8 +55,8 @@
 .dashboard .mini-blocks .mini {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
+    justify-content: center;
+    flex-direction: column;   
     width: 150px;
     height: 75px;
     padding: 10px;
@@ -66,4 +66,5 @@
     border-radius: 6px;
     color: var(--Background);
     margin: 3px;
+    text-align: center;
 }
