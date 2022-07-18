@@ -172,8 +172,7 @@ async function deletePreferences(idAccount) {
 
     const res = await api.delete(`/preferences/${idAccount}`);
     if(res.status===201) {
-        toast.success("Conta deletada com sucesso")   ;
-        window.open("/", "_self")    
+        toast.success("Conta deletada com sucesso")   ;  
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
