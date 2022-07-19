@@ -12,13 +12,13 @@ function Accounts() {
         const {data} = useFetch(`accounts`);
       
         
- 
+        const filterAccounts = data?.filter(account => account.city !== "" || account.uf !== "")
 
       let SearchUsers = []
       const searchLower = search.toLowerCase()
   
       if(data) {
-          SearchUsers = data?.filter((informations) => informations.username.toLowerCase().includes(searchLower)
+          SearchUsers = filterAccounts?.filter((informations) => informations.username.toLowerCase().includes(searchLower)
                                                         || informations.email.toLowerCase().includes(searchLower)
                                                         || informations.id.toLowerCase().includes(searchLower) )
       }
@@ -110,8 +110,11 @@ function AccountsCounter() {
         )
     }
 
+    const filterAccounts = data?.filter(account => account.city !== "" || account.uf !== "")
+
+
     return (
-          <>{data?.length}</>
+          <>{filterAccounts?.length}</>
     )
 }
 
