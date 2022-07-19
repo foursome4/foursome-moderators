@@ -29,6 +29,8 @@ function Accounts() {
           // mailAccountRecused(email)
         }
 
+        const filterAccounts = data?.filter(account => account.city !== "" || account.uf !== "")
+
 
         if(!data) {
             return (
@@ -40,14 +42,19 @@ function Accounts() {
         <div className="accounts">
             <Navbar />
             <h1>Contas de Usuário!!!</h1>
-            <h5>{data?.length}</h5>
+            <h5>{filterAccounts?.length}</h5>
 
 
-
+            
 
             <div className="accounts-list">
-                    {data?.map((account) => {
+                    {filterAccounts?.map((account) => {
                         return (
+                            <>
+                            {
+                                account.city === "" || account.city === null || account.city === undefined || account.uf === "" || account.uf === undefined ?
+                                ""
+                                :
                             <div className="unic" key={account.id}>
                                 <div className="avatar">
                                     <img src={account.avatar} alt="" />
@@ -72,6 +79,8 @@ account.longitude, account.recommendation)}>Aprovar</button>
                                    <button onClick={() => handleDeleteAccount(account.id, account.email)}className="delete">Reprovar</button>
                                 </div>
                             </div>
+                            }
+                            </>
                             )
                         })
                     }
