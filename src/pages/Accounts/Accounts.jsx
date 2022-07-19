@@ -20,7 +20,7 @@ function Accounts() {
             updateAccount(id, país, username, role, type, email, phone, online, patron, nickname, avatar,
                 cover, relationship, city, uf, cep, latitude, longitude, recommendation, status)
 
-             emailAccountAproved(email)
+            // emailAccountAproved(email)
 
                 
         }
