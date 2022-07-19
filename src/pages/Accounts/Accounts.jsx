@@ -3,8 +3,10 @@ import Navbar from "../../components/Nav/Navbar";
 import { useFetch } from "../../hooks/useFetch"
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth";
+import { useState } from "react";
 
 function Accounts() {
+    const [select, setSelect] = useState("Complete")
     const {deleteAccount, mailAccountRecused, emailAccountAproved, updateAccount} = useContext(AuthContext);
     const {data} = useFetch(`/accounts/search/pending`);
     if(data) {
@@ -23,13 +25,19 @@ function Accounts() {
                 
         }
 
+        function handleSelect(data) {
+                setSelect(data)
+        }
+
         function handleDeleteAccount(id, email) {
             console.log(id)
             deleteAccount(id);
           // mailAccountRecused(email)
         }
 
-        const filterAccounts = data?.filter(account => account.city !== "" || account.uf !== "")
+        const filterAccounts = select === "Complete" ? data?.filter(account => account.city !== "" || account.uf !== "")
+                             : select === "Incomplete" ? data?.filter(account => account.city === "" || account.uf === "")
+                             : ""
 
 
         if(!data) {
@@ -44,17 +52,18 @@ function Accounts() {
             <h1>Contas de Usuário!!!</h1>
             <h5>{filterAccounts?.length}</h5>
 
+            <div className="buttonsSelect">
+                <button onClick={() => {handleSelect("Complete")}}>Contas completas</button>
+                <button onClick={() => {handleSelect("Incomplete")}}>Contas incompletas</button>
+            </div>
+
 
             
 
             <div className="accounts-list">
                     {filterAccounts?.map((account) => {
                         return (
-                            <>
-                            {
-                                account.city === "" || account.city === null || account.city === undefined || account.uf === "" || account.uf === undefined ?
-                                ""
-                                :
+
                             <div className="unic" key={account.id}>
                                 <div className="avatar">
                                     <img src={account.avatar} alt="" />
@@ -79,8 +88,7 @@ account.longitude, account.recommendation)}>Aprovar</button>
                                    <button onClick={() => handleDeleteAccount(account.id, account.email)}className="delete">Reprovar</button>
                                 </div>
                             </div>
-                            }
-                            </>
+
                             )
                         })
                     }
