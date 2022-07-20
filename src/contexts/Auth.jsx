@@ -183,15 +183,25 @@ async function deletePreferences(idAccount) {
 // Emails 
 
 async function emailAccountRecused(email) {
-    await api.post("/mail/accountrecused", email).then((response) => {
-        toast.success("Email enviado");
+    const res = await api.post("/mail/accountrecused", {mail: email}).then((response) => {
+             if(res.status === 200 || res.status === 201) {
+                toast.success("Email enviado");
+        }
     })
 
     console.log(email)
 }
+
+    // async function completeAccount(email) {
+    //     const res = await api.post("/mail/confirmation", {mail: email});
+    //     if(res.status === 200) {
+    //     }
+    // }
 async function emailAccountAproved(email) {
-    await api.post("/mail/accountaproved", email).then((response) => {
-        toast.success("Email enviado");
+    const res = await api.post("/mail/accountaproved", {mail: email}).then((response) => {
+        if(res.status === 200 || res.status === 201) {
+            toast.success("Email enviado");
+    }
     })
 
     console.log(email)
