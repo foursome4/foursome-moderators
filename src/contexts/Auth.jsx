@@ -123,13 +123,14 @@ function AuthProvider({children}) {
             console.log(data)
     await   api.patch(`/accounts/${id}`, data).then(async res => {
         toast.success("Conta Aprovada")
+        emailAccountAproved(email)
     }).catch(error => {
         toast.error("Falha na aprovação")
     })
 }
 
     //Deletando conta
-async function deleteAccount(id) {
+async function deleteAccount(id, email) {
     toast.success("Deletendo sua conta")
     const Local = localStorage.getItem("foursome");
     const user = JSON.parse(Local);
@@ -137,6 +138,7 @@ async function deleteAccount(id) {
     if(res.status===201) {
         toast.info("Deletando informações") 
         deleteInformations(id)
+        emailAccountRecused(email)
         
      } else {
         toast.error('Falha ao deletar, tente novamente!');
@@ -183,11 +185,10 @@ async function deletePreferences(idAccount) {
 // Emails 
 
 async function emailAccountRecused(email) {
-    const res = await api.post("/mail/accountrecused", {mail: email}).then((response) => {
+    const res = await api.post("/mail/accountrecused", {mail: email})
              if(res.status === 200 || res.status === 201) {
                 toast.success("Email enviado");
         }
-    })
 
     console.log(email)
 }
@@ -198,12 +199,10 @@ async function emailAccountRecused(email) {
     //     }
     // }
 async function emailAccountAproved(email) {
-    const res = await api.post("/mail/accountaproved", {mail: email}).then((response) => {
+    const res = await api.post("/mail/accountaproved", {mail: email})
         if(res.status === 200 || res.status === 201) {
             toast.success("Email enviado");
     }
-    })
-
     console.log(email)
 }
 
