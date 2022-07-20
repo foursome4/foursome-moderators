@@ -20,7 +20,7 @@ function Accounts() {
             updateAccount(id, país, username, role, type, email, phone, online, patron, nickname, avatar,
                 cover, relationship, city, uf, cep, latitude, longitude, recommendation, status)
 
-            // emailAccountAproved(email)
+            emailAccountAproved(email)
 
                 
         }
@@ -32,7 +32,7 @@ function Accounts() {
         function handleDeleteAccount(id, email) {
             console.log(id)
             deleteAccount(id);
-          // mailAccountRecused(email)
+         mailAccountRecused(email)
         }
 
         const filterAccounts = select === "Complete" ? data?.filter(account => account.city !== "" || account.uf !== "")
