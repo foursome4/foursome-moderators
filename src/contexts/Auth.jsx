@@ -94,26 +94,25 @@ function AuthProvider({children}) {
 
         console.log(data)
         console.log(data2)
-        await api.post("/mail/reinvite", data).then(async res => {
+        const res = await api.post("/mail/reinvite", data)
             if(res.status === 200) {
                 toast.success("E-mail Reenviado com sucesso!")
+              
+                const res = await api.patch(`/invites/${id}`, data2)
+                     if(res.status === 201) {
+                         toast.success("Convite alterado com sucesso!")
+                     }
             }
 
-            await api.patch(`/invites/${id}`, data2).then(async res => {
-                if(res.status === 201) {
-                    toast.success("Convite alterado com sucesso!")
-                }
-            }).catch(error => {
-                console.log("Email não reenviado" + error)
-                toast.error("Email não reenviado")
-            }) 
-
-        }).catch(error => {
-            console.log("Email não reenviado" + error)
-            toast.error("Email não reenviado")
-        }) 
+ 
 
     }
+
+        // async function completeAccount(email) {
+    //     const res = await api.post("/mail/confirmation", {mail: email});
+    //     if(res.status === 200) {
+    //     }
+    // }
 
 
     async function updateAccount(id, país, username, role, type, email, phone, online, patron, nickname, avatar,
@@ -193,11 +192,7 @@ async function emailAccountRecused(email) {
     console.log(email)
 }
 
-    // async function completeAccount(email) {
-    //     const res = await api.post("/mail/confirmation", {mail: email});
-    //     if(res.status === 200) {
-    //     }
-    // }
+
 async function emailAccountAproved(email) {
     const res = await api.post("/mail/accountaproved", {mail: email})
         if(res.status === 200 || res.status === 201) {
