@@ -10,6 +10,11 @@ function Accounts() {
         const [search, setSearch] = useState('');
         const [type, setType] = useState('username');
         const {data} = useFetch(`accounts`);
+
+        if(data){
+            console.log("Contas total:")
+            console.log(data?.length)
+        } 
       
         
         const filterAccounts = data?.filter(account => account.city !== "" || account.uf !== "")
@@ -18,7 +23,7 @@ function Accounts() {
       const searchLower = search.toLowerCase()
   
       if(data) {
-          SearchUsers = filterAccounts?.filter((informations) => informations.username.toLowerCase().includes(searchLower)
+          SearchUsers = data?.filter((informations) => informations.username.toLowerCase().includes(searchLower)
                                                         || informations.email.toLowerCase().includes(searchLower)
                                                         || informations.id.toLowerCase().includes(searchLower) )
       }
@@ -114,8 +119,42 @@ function AccountsCounter() {
 
 
     return (
+          <>{data?.length}</>
+    )
+}
+function AccountsCounterPending() {
+
+    const {data} = useFetch(`/accounts`);
+
+    if(!data) {
+        return (
+            <>Carregando...</>
+        )
+    }
+
+    const filterAccounts = data?.filter(account => account.status === "pending")
+
+
+    return (
+          <>{filterAccounts?.length}</>
+    )
+}
+function AccountsCounterAproveds() {
+
+    const {data} = useFetch(`/accounts`);
+
+    if(!data) {
+        return (
+            <>Carregando...</>
+        )
+    }
+
+    const filterAccounts = data?.filter(account => account.status !== "pending")
+
+
+    return (
           <>{filterAccounts?.length}</>
     )
 }
 
-export { Accounts, AccountsCounter }
+export { Accounts, AccountsCounter, AccountsCounterPending, AccountsCounterAproveds }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Accounts, AccountsCounter } from '../../components/Boxes/Accounts/Accounts';
+import { Accounts, AccountsCounter, AccountsCounterAproveds, AccountsCounterPending } from '../../components/Boxes/Accounts/Accounts';
 import { PostPhotos, PostPhotosCounter } from '../../components/Boxes/PostPhotos/PostPhotos';
 import { PostVideo, PostVideoCounter } from '../../components/Boxes/PostVideo/PostVideo';
 import { EventsCounter } from '../../components/Counters/EventsCounter/EventsCounter';
@@ -111,11 +111,11 @@ function Dashboard() {
                      </div>
                      <div className="mini">
                         <h5> Contas Aprovadas</h5>
-                       <AccountsCounter />
+                       <AccountsCounterAproveds />
                      </div>
                      <div className="mini">
                         <h5> Contas Pendentes</h5>
-                        <AccountsCounter /> 
+                        <AccountsCounterPending /> 
                      </div>
                      <div className="mini">
                         <h5> Fotos Postadas</h5>
