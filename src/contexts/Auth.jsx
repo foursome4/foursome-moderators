@@ -148,7 +148,6 @@ async function deleteInformations(idAccount) {
     toast.success("Deletando informações")
 
     await api.delete(`/informations/${idAccount}`).then((res) => {
-        deleteCharacteristcs(idAccount)
     }).catch((error) => {
         console.log(error)
         toast.error('Falha ao deletar, tente novamente!');
