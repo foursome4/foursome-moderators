@@ -242,6 +242,7 @@ async function deleteConversations(user) {
 
      newRooms.forEach((room) => {
          const idRoom = room.id
+         toast.success("Deletado conversas!");
               await api.delete(`/conversations/${idRoom}`);
      })
      toast.success("Deletado com sucesso!");
