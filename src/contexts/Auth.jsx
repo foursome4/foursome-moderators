@@ -249,7 +249,7 @@ async function deleteConversations(user) {
      const newRooms = rmyRooms1.data.concat(rmyRooms2.data);
      // console.log(newRooms);
 
-     newRooms.forEach((room) => {
+     newRooms.forEach(async (room) => {
          const id = room.id
          toast.success("Deletado conversas!");
               await api.delete(`/conversations/${id}`);
