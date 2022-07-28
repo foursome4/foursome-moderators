@@ -158,6 +158,7 @@ async function deleteInformations(idAccount) {
 
 async function deleteAccount1(id) {
     toast.success("Deletando conta de usuário")
+    console.log("Deletando conta de usuário")
 
     const res = await api.delete(`/accounts/${id}`);
 
@@ -172,27 +173,36 @@ async function deleteAccount1(id) {
 
 async function deleteInformations1(idAccount) {
     toast.success("Deletando informações")
+    console.log("Deletando informações")
 
-    const res = await api.delete(`/informations/${idAccount}`).then((res) => {
+    await api.delete(`/informations/${idAccount}`).then((res) => {
         deleteCharacteristcs(idAccount)
     }).catch((error) => {
         console.log(error)
         toast.error('Falha ao deletar, tente novamente!');
+        console.log('Falha ao deletar, tente novamente!');
     })
 }
 async function deleteCharacteristcs(idAccount) {
     console.log(idAccount)
     toast.success("Deletando Caracteristicas")
+    console.log("Deletando Caracteristicas")
     const res = await api.get(`/characteristics/${idAccount}`)
     console.log(res.data)
     res.data.forEach(async (user) => {
         console.log(user.idAccount)
-     await api.delete(`/characteristics/${user.idAccount}`);
+     await api.delete(`/characteristics/${user.idAccount}`).then((res) => {
+         console.log("Deletado")
+
+     }).catch((error) => {
+        console.log(error)
+     })
      deletePreferences(user.idAccount)
     })
 }
 async function deletePreferences(idAccount) {
     toast.success("Deletando Preferencias")
+    console.log("Deletando Preferencias")
     const res = await api.delete(`/preferences/${idAccount}`);
     if(res.status===201) {
         deletePostsUser(idAccount) 
