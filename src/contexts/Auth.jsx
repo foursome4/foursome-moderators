@@ -130,7 +130,7 @@ function AuthProvider({children}) {
 
     //Deletando conta
 async function deleteAccount(id, email) {
-    toast.success("Deletando sua conta")
+    toast.success("Deletando Solicitação de conta")
 
     const res = await api.delete(`/accounts/${id}`);
 
