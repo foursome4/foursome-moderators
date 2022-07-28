@@ -5,7 +5,7 @@ import { useFetch } from '../../../hooks/useFetch';
 
 
 function Accounts() {
-    const {deleteAccount} = useContext(AuthContext);
+    const {deleteAccount1} = useContext(AuthContext);
 
         const [search, setSearch] = useState('');
         const [type, setType] = useState('username');
@@ -33,7 +33,7 @@ function Accounts() {
       function handleDeleteAccount(id) {
         const deletar = window.confirm("Deseja deletar a postagem?");
         if(deletar === true) {
-            deleteAccount(id);
+            deleteAccount1(id);
         } 
     }
       function handleViewPatron(id) {

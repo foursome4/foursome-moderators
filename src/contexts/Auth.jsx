@@ -130,10 +130,10 @@ function AuthProvider({children}) {
 
     //Deletando conta
 async function deleteAccount(id, email) {
-    toast.success("Deletendo sua conta")
-    const Local = localStorage.getItem("foursome");
-    const user = JSON.parse(Local);
+    toast.success("Deletando sua conta")
+
     const res = await api.delete(`/accounts/${id}`);
+
     if(res.status===201) {
         toast.info("Deletando informações") 
         deleteInformations(id)
@@ -145,38 +145,106 @@ async function deleteAccount(id, email) {
 }
 
 async function deleteInformations(idAccount) {
-    const Local = localStorage.getItem("informations-foursome");
-    const user = JSON.parse(Local);
+    toast.success("Deletando informações")
 
-    const res = await api.delete(`/informations/${idAccount}`);
-    if(res.status===201) {
+    await api.delete(`/informations/${idAccount}`).then((res) => {
         deleteCharacteristcs(idAccount)
+    }).catch((error) => {
+        console.log(error)
+        toast.error('Falha ao deletar, tente novamente!');
+    })
+}
+
+
+
+async function deleteAccount1(id) {
+    toast.success("Deletando conta de usuário")
+
+    const res = await api.delete(`/accounts/${id}`);
+
+    if(res.status===201) {
+        toast.info("Deletando informações") 
+        deleteInformations1(id)
        
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
+}
+
+async function deleteInformations1(idAccount) {
+    toast.success("Deletando informações")
+
+    const res = await api.delete(`/informations/${idAccount}`).then((res) => {
+        deleteCharacteristcs(idAccount)
+    }).catch((error) => {
+        console.log(error)
+        toast.error('Falha ao deletar, tente novamente!');
+    })
 }
 async function deleteCharacteristcs(idAccount) {
-    const Local = localStorage.getItem("characteritics-foursome");
-    const user = JSON.parse(Local);
-    const res = await api.delete(`/characteristics/${idAccount}`);
+    console.log(idAccount)
+    toast.success("Deletando Caracteristicas")
+    const res = await api.get(`/characteristics/${idAccount}`)
+    console.log(res.data)
+    res.data.forEach(async (user) => {
+        console.log(user.idAccount)
+     await api.delete(`/characteristics/${user.idAccount}`);
+     deletePreferences(user.idAccount)
+    })
+}
+async function deletePreferences(idAccount) {
+    toast.success("Deletando Preferencias")
+    const res = await api.delete(`/preferences/${idAccount}`);
     if(res.status===201) {
-        deletePreferences(idAccount)
-       
+        deletePostsUser(idAccount) 
      } else {
         toast.error('Falha ao deletar, tente novamente!');
      }
 }
-async function deletePreferences(idAccount) {
-    const Local = localStorage.getItem("preferences-foursome");
-    const user = JSON.parse(Local);
 
-    const res = await api.delete(`/preferences/${idAccount}`);
-    if(res.status===201) {
-        toast.success("Conta deletada com sucesso")   ;  
-     } else {
-        toast.error('Falha ao deletar, tente novamente!');
-     }
+async function deletePostsUser(idAccount) {
+    toast.success("Deletando Caracteristicas")
+    const res = await api.get(`/posts/filter/accounts/${idAccount}`)
+    res.data.forEach(async (user) => {
+     await api.delete(`/posts/${user.id}`); 
+     toast.info('Deletando Posts!');
+    const res = await api.get(`/comments/${user.id}`); 
+
+    res.data.forEach(async (user) => {
+        await api.delete(`/comments/${user.id}`); 
+        toast.info('Deletando Comant[arios!');
+       const res = await api.get(`/reply/${user.id}`); 
+
+       res.data.forEach(async (user) => {
+        await api.delete(`/reply/${user.id}`); 
+        toast.info('Deletando Respostas!');
+    })
+    toast.info('Conta totalmente deletada!');
+    })
+
+
+       })
+
+       deleteConversations(idAccount)
+
+
+}
+
+async function deleteConversations(user) {
+    const idAccount = user.id
+    const rmyRooms1 = await api.get(`conversations/account/filter/${idAccount}`)
+
+     const idFriend = user.id
+     const rmyRooms2 = await api.get(`conversations/friend/filter/${idFriend}`)
+
+     const newRooms = rmyRooms1.data.concat(rmyRooms2.data);
+     // console.log(newRooms);
+
+     newRooms.forEach((room) => {
+         const idRoom = room.id
+              await api.delete(`/conversations/${idRoom}`);
+     })
+     toast.success("Deletado com sucesso!");
 }
 
 //Fim deletando conta
@@ -283,6 +351,7 @@ async function deleteForuns(id){
             logout,
             loginSession,
             deleteAccount,
+            deleteAccount1,
             deletePost,
             deleteComment,
             deleteReply,
