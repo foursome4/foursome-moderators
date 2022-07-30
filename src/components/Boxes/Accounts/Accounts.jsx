@@ -22,11 +22,11 @@ function Accounts() {
       let SearchUsers = []
       const searchLower = search
   
-    //   if(data) {
-    //       SearchUsers = data?.filter((informations) => informations.username.includes(searchLower)
-    //                                                     || informations.email.includes(searchLower)
-    //                                                     || informations.id.includes(searchLower))
-    //   }
+      if(data) {
+          SearchUsers = data?.filter((informations) => informations.email.includes(searchLower))
+                                                        // || informations.email.includes(searchLower)
+                                                        // || informations.id.includes(searchLower))
+      }
   
     
 
