@@ -73,7 +73,7 @@ function Accounts() {
                           <input type="text" placeholder='Buscar usuário, id ou e-mail' value={search.toLowerCase()} onChange={(e) => setSearch(e.target.value)}/>
                         </div>
                             {
-                                data?.map((account) => {
+                                SearchUsers?.map((account) => {
                                     return(
                                         <div className="account" key={account.id}>
                                             <div className="name">
