@@ -20,13 +20,13 @@ function Accounts() {
         const filterAccounts = data?.filter(account => account.city !== "" || account.uf !== "")
 
       let SearchUsers = []
-      const searchLower = search.toLowerCase()
+      const searchLower = search
   
-      if(data) {
-          SearchUsers = data?.filter((informations) => informations.username.toLowerCase().includes(searchLower)
-                                                        || informations.email.toLowerCase().includes(searchLower)
-                                                        || informations.id.toLowerCase().includes(searchLower) )
-      }
+    //   if(data) {
+    //       SearchUsers = data?.filter((informations) => informations.username.includes(searchLower)
+    //                                                     || informations.email.includes(searchLower)
+    //                                                     || informations.id.includes(searchLower))
+    //   }
   
     
 
@@ -73,7 +73,7 @@ function Accounts() {
                           <input type="text" placeholder='Buscar usuário, id ou e-mail' value={search.toLowerCase()} onChange={(e) => setSearch(e.target.value)}/>
                         </div>
                             {
-                                SearchUsers?.map((account) => {
+                                data?.map((account) => {
                                     return(
                                         <div className="account" key={account.id}>
                                             <div className="name">

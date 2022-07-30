@@ -1,6 +1,7 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
 import { Feed } from '../components/Feed/Feed';
 import { Accounts } from '../pages/Accounts/Accounts';
+import { AccountsAproveds } from '../pages/AccountsAproveds/AccountsAproveds';
 import { Dashboard } from '../pages/Dashboard/Dashboard';
 import { Events } from '../pages/Events/Events';
 import { Foruns } from '../pages/Foruns/Foruns';
@@ -42,7 +43,7 @@ function PrivateRoute({children} ) {
             <Route path="/notifications"
                     element={ <PrivateRoute> <Notifications /> </PrivateRoute>} />
             <Route path="/accounts"
-                    element={ <PrivateRoute> <Accounts /> </PrivateRoute>} />
+                    element={ <PrivateRoute> <AccountsAproveds /> </PrivateRoute>} />
             <Route path="/groups"
                     element={ <PrivateRoute> <Groups /> </PrivateRoute>} />
             <Route path="/foruns"
