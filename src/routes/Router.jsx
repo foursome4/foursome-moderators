@@ -43,7 +43,7 @@ function PrivateRoute({children} ) {
             <Route path="/notifications"
                     element={ <PrivateRoute> <Notifications /> </PrivateRoute>} />
             <Route path="/accounts"
-                    element={ <PrivateRoute> <AccountsAproveds /> </PrivateRoute>} />
+                    element={ <PrivateRoute> <Accounts /> </PrivateRoute>} />
             <Route path="/groups"
                     element={ <PrivateRoute> <Groups /> </PrivateRoute>} />
             <Route path="/foruns"
