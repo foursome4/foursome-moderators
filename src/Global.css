@@ -6,6 +6,10 @@
 
 :root{
   --Primary: #8124E2;
+  --Primary3: #8124F2;
+  --Primary2: #8124D0;
+  --Primary4: #8124C0;
+  --Primary5: #8124A0;
   --Background: #F6F2F8;
   --Background-man: #ececff;
   --Background-woman: #ffecfc;
@@ -17,6 +21,9 @@
   --White: #ffffff;
   --Button: #0095D3;
   --Gray-Border: #BFC4D3;
+  --Foursome1:#ae009d;
+  --Foursome2:#de0053;
+  --Foursome3:#ffc200;
 }
 
 html {

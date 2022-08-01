@@ -108,6 +108,37 @@ function AuthProvider({children}) {
 
     }
 
+    async function newRecado({title, text, reply, destination, destinationName, priority, patron, idAccount, link, type}) {
+        const data = {title, text, reply, destination, destinationName, priority, patron, idAccount, link, type}
+        console.log(data)
+        await api.post("/news", data).then((res) => {
+            toast.success("Recado cadastrado")
+        }).catch((err) => {
+            console.log(err)
+            toast.error("Recado cadastrado")
+        })
+    }
+    async function newReply({title, text, reply, destination, destinationName, priority, patron, idAccount, link, type}) {
+        const data = {title, text, reply, destination, destinationName, priority, patron, idAccount, link, type}
+        console.log(data)
+        await api.post("/news", data).then((res) => {
+            toast.success("Recado cadastrado")
+        }).catch((err) => {
+            console.log(err)
+            toast.error("Recado cadastrado")
+        })
+    }
+
+
+    async function deleteNews(id) {
+        console.log(id);
+        await api.delete(`/news/${id}`).then((res) => {
+            toast.success("Recado Deletado")
+        }).catch((err) => {
+            console.log(err)
+            toast.error("Recado cadastrado")
+        })
+    }
         // async function completeAccount(email) {
     //     const res = await api.post("/mail/confirmation", {mail: email});
     //     if(res.status === 200) {
@@ -372,7 +403,10 @@ async function deleteForuns(id){
             resendMail,
             emailAccountRecused,
             emailAccountAproved,
-            updateAccount
+            updateAccount,
+            newRecado,
+            newReply,
+            deleteNews
         }}>
             {children}
         </AuthContext.Provider>

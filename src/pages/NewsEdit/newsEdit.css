@@ -1,0 +1,311 @@
+﻿.News {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+.News .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+}
+.News .buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px;
+    background-color: var(--Button);
+    color: var(--White);
+}
+
+.News .components {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+.News .components .Recado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+.News .components .Recado .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    padding: 10px;
+    color: var(--Primary);
+}
+
+.News .components .Recado .form .label-avatar{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.News .components .Recado .form .label-avatar input {
+    display: none;
+}
+
+.News .components .Recado .form .label-avatar span {
+    z-index: 99;
+    position: absolute;
+    opacity: 0.7;
+    transition: all .5s;
+}
+
+.News .components .Recado .form .label-avatar span:hover{
+    opacity: 1;
+    trans.form: scale(1.4);
+}
+
+.News .components .Recado .form .label-avatar img{
+    margin-bottom: 1em;
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.News .components .Recado .form input {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    width: 50%;
+    margin: 5px;
+    color: var(--Primary);
+}
+.News .components .Recado .form select {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    width: 50%;
+    margin: 5px;
+    color: var(--Primary);
+}
+.News .components .Recado .form textarea {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    width: 50%;
+    margin: 5px;
+    resize: none;
+    color: var(--Primary);
+}
+.News .components .Recado .form button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    width: 50%;
+    margin: 5px;
+    background-color: var(--Foursome3);
+    color: var(--White);
+}
+.News .components .Recado .form btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    width: 50%;
+    margin: 5px;
+    background-color: var(--Button);
+    color: var(--White);
+}
+
+.News .components .Recado .form input[type="text"]:disabled {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    width: 50%;
+    margin: 5px;
+}
+
+
+
+.News .components .listRecados{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:80%;
+    background-color: var(--Background2)
+}
+
+
+.News .components .listRecados .new {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid var(--Background);
+    border-left: 4px solid var(--Button);
+    text-decoration: none;
+    cursor: pointer;
+}
+.News .components .listRecados .new .name {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+}
+.News .components .listRecados .new .buttons {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.News .components .listRecados .new .name h4 {
+    color: var(--Primary);
+}
+.News .components .listRecados .new .name h5 {
+    color: var(--Gray_font1);
+}
+.News .components .listRecados .new .name a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.News .components .listRecados .new2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid var(--Background);
+    border-left: 4px solid var(--Foursome2);
+    text-decoration: none;
+    cursor: pointer;
+}
+.News .components .listRecados .new2 .name {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+}
+.News .components .listRecados .new2 .name h4 {
+    color: var(--Primary);
+}
+.News .components .listRecados .new2 .name h5 {
+    color: var(--Gray_font1);
+}
+.News .components .listRecados .new2 .name a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+    .News .components .Recado .form input {
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        width: 70%;
+        margin: 5px;
+        color: var(--Primary);
+    }
+    .News .components .Recado .form select {
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        width: 70%;
+        margin: 5px;
+        color: var(--Primary);
+    }
+    .News .components .Recado .form textarea {
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        width: 70%;
+        margin: 5px;
+        resize: none;
+        color: var(--Primary);
+    }
+
+    @media (max-width: 700px) {
+        .News .components .Recado .form input {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            width: 90%;
+            margin: 5px;
+            color: var(--Primary);
+        }
+        .News .components .Recado .form select {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            width: 90%;
+            margin: 5px;
+            color: var(--Primary);
+        }
+        .News .components .Recado .form textarea {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            width: 90%;
+            margin: 5px;
+            resize: none;
+            color: var(--Primary);
+        }
+
+        
+    @media (max-width: 500px) {
+        .News .components .Recado .form input {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            width: 100%;
+            margin: 5px;
+            color: var(--Primary);
+        }
+        .News .components .Recado .form select {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            width: 100%;
+            margin: 5px;
+            color: var(--Primary);
+        }
+        .News .components .Recado .form textarea {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            width: 100%;
+            margin: 5px;
+            resize: none;
+            color: var(--Primary);
+        }
+    }
+    }
+
+
+}
