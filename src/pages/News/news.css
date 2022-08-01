@@ -251,6 +251,20 @@
     color: var(--White);
     text-decoration: none;
 }
+
+.News .components .listRecados .new2 .buttons button {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px;
+    background-color: red;
+    color: var(--White);
+    text-decoration: none;
+}
 .News .components .listRecados .new2 .name {
     width: 100%;
     display: flex;
@@ -266,6 +280,71 @@
     color: var(--Gray_font1);
 }
 .News .components .listRecados .new2 .name a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.News .components .listRecados .new3 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid var(--Background);
+    border-left: 4px solid var(--Foursome2);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.News .components .listRecados .new3 .buttons {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.News .components .listRecados .new3 .buttons a {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px;
+    background-color: var(--Foursome3);
+    color: var(--White);
+    text-decoration: none;
+}
+
+.News .components .listRecados .new3 .buttons button {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px;
+    background-color: red;
+    color: var(--White);
+    text-decoration: none;
+}
+.News .components .listRecados .new3 .name {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+}
+.News .components .listRecados .new3 .name h4 {
+    color: var(--Primary);
+}
+.News .components .listRecados .new3 .name h5 {
+    color: var(--Gray_font1);
+}
+.News .components .listRecados .new3 .name a {
     text-decoration: none;
     cursor: pointer;
 }
