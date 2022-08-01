@@ -202,8 +202,8 @@
     border-radius: 6px;
     border: none;
     margin: 5px;
-    background-color: var(--Foursome3);
-    color: red;
+    background-color: red;
+    color: var(--White);
     text-decoration: none;
 }
 .News .components .listRecados .new .name h4 {
