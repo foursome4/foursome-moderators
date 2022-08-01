@@ -112,7 +112,8 @@ function AuthProvider({children}) {
         const data = {title, text, reply, destination, destinationName, priority, patron, idAccount, link, type}
         console.log(data)
         await api.post("/news", data).then((res) => {
-            toast.success("Recado cadastrado")
+            toast.success("Recado cadastrado");
+            window.location.reload(false)
         }).catch((err) => {
             console.log(err)
             toast.error("Recado cadastrado")
