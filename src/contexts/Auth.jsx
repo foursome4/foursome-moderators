@@ -135,6 +135,7 @@ function AuthProvider({children}) {
         console.log(id);
         await api.delete(`/news/${id}`).then((res) => {
             toast.success("Recado Deletado")
+            window.location.reload(false)
         }).catch((err) => {
             console.log(err)
             toast.error("Recado cadastrado")

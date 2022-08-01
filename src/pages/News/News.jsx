@@ -172,7 +172,7 @@ function News() {
                 
                                  {data?.map((news) => {
                             return(
-                                <div className={news.priority === "Normal" ? "new": news.priority === "Alta" ? "new2" : "new"} key={news.id} onClick={() =>hadleOpenRecado(news.id)}>
+                                <div className={news.priority === "Normal" ? "new": news.priority === "Alta" ? "new2" : "new3"} key={news.id} onClick={() =>hadleOpenRecado(news.id)}>
                                     <div className="name">
                                         <h4>{news?.title}</h4>
                                         <h5>{news?.text.substring(0,50)}{news?.text.length < 50 ? "" : "..."}</h5>
