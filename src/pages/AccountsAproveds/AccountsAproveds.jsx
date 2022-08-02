@@ -63,7 +63,7 @@ const filterUsuarios = user.filter((informations) => informations.accountComplet
 
     return (
         <div className="content">
-        <div className="accounts">
+        <div className="AccountsAproveds">
             <Navbar />
             <h1>Contas de Usuário</h1>
             <h5>{filterUsuarios?.length}</h5>
@@ -71,7 +71,7 @@ const filterUsuarios = user.filter((informations) => informations.accountComplet
 
             
 
-            <div className="accounts-list">
+            <div className="AccountsAproveds-list">
                     {filterUsuarios?.map((account) => {
                         return (
 
