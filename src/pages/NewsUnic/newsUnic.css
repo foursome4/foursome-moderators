@@ -120,6 +120,11 @@
     white-space: pre-line;
 }
 
+.NewsUnic .listNewsUnic img {
+    margin-top: 20px;
+    width: 20%;
+}
+
 
 @media (max-width: 900px) {
     .NewsUnic .listNewsUnic{
@@ -133,6 +138,23 @@
             width:100%;
             padding:0 10px;
         }
+
+        .NewsUnic .listNewsUnic img {
+            width: 30%;
+        }
+
+        @media (max-width: 600px) {
+            .NewsUnic .listNewsUnic{
+                width:100%;
+                padding:0 10px;
+            }
+    
+            .NewsUnic .listNewsUnic img {
+                width: 50%;
+            }
+            
+        }
+        
         
     }
     

@@ -6,9 +6,10 @@ import { AuthContext } from "../../contexts/Auth";
 import { useState } from "react";
 import { useEffect } from "react";
 import api from "../../services/api";
+import { DateFormat } from "../../components/DateFormat/DateFormat";
 
 function AccountsAproveds() {
-    const {deleteAccount1} = useContext(AuthContext);
+    const {deleteAccount1, emailAccountAproved} = useContext(AuthContext);
     const [user, setUser] = useState([])
 
 
@@ -16,6 +17,10 @@ function AccountsAproveds() {
     function handleDeleteAccount(id) {
         console.log(id)
         deleteAccount1(id);
+    }
+    function handleAprovvdAccount(email) {
+        console.log(email)
+        emailAccountAproved(email);
     }
 
 
@@ -26,7 +31,7 @@ function AccountsAproveds() {
             console.log(res.data)
            res.data.forEach((account) => {
             async function loadInformations() {
-                await api.get(`/informations/${account.id}`).then((res) => {
+                await api.get(`/preferences/${account.id}`).then((res) => {
                     console.log(account.id)
                     console.log(account)
                     console.log(res.data)
@@ -86,10 +91,12 @@ const filterUsuarios = user.filter((informations) => informations.accountComplet
                                     <h4>Função: {account.role}</h4>
                                     <h5>Tipo: {account.type}</h5>
                                     <h5>Patron: {account.patron}</h5>
-                                    <h5>Data: {account.data}</h5>
+                                    <DateFormat date={account.data}/>
+                                    {/* <h5>Data: {account.data}</h5> */}
                                 </div>
                                 <div className="buttons">
                                    <button onClick={() => handleDeleteAccount(account.id)}className="delete">Deletar</button>
+                                   <button onClick={() => handleAprovvdAccount(account.email)}className="delete">Reenviar</button>
                                 </div>
                             </div>
 

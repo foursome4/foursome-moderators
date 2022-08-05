@@ -298,6 +298,7 @@ async function emailAccountRecused(email) {
     const res = await api.post("/mail/accountrecused", {mail: email})
              if(res.status === 200 || res.status === 201) {
                 toast.success("Email enviado");
+                window.location.reload(false);
         }
 
     console.log(email)
@@ -308,6 +309,7 @@ async function emailAccountAproved(email) {
     const res = await api.post("/mail/accountaproved", {mail: email})
         if(res.status === 200 || res.status === 201) {
             toast.success("Email enviado");
+            window.location.reload(false);
     }
     console.log(email)
 }

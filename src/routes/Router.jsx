@@ -53,6 +53,8 @@ function PrivateRoute({children} ) {
                     element={ <PrivateRoute> <NewsEdit /> </PrivateRoute>} />
             <Route path="/accounts"
                     element={ <PrivateRoute> <Accounts /> </PrivateRoute>} />
+            <Route path="/accountsaproveds"
+                    element={ <PrivateRoute> <AccountsAproveds /> </PrivateRoute>} />
             <Route path="/groups"
                     element={ <PrivateRoute> <Groups /> </PrivateRoute>} />
             <Route path="/foruns"

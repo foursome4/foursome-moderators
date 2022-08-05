@@ -1,5 +1,6 @@
 ﻿import { useParams } from "react-router-dom";
 import Navbar from "../../components/Nav/Navbar";
+import { ReplyNews } from "../../components/ReplyNews/ReplyNews";
 import { useFetch } from "../../hooks/useFetch";
 import "./newsUnic.css"
 
@@ -18,16 +19,15 @@ function NewsUnic() {
             <h5><b>Para:</b> Todos. <b>Prioridade:</b>{data?.[0].priority}</h5>     
                 </div>
             <br />
-            <h5>{data?.[0].text}</h5>  
+            <h5>{data?.[0].text}</h5> 
+            {data?.[0].link === "" ? "":
+            <img src={data?.[0].link} alt={data?.[0].title} /> 
+            }
             <br />
-            <h5>Atenciosamente, <br />Equipe FOURSOME</h5>   
+            <h5>Atenciosamente, <br />{data?.[0].nickname}</h5>
 
-            <div className="reply">
-                <textarea name="" id="" cols="30" rows="5" placeholder="Digite sua resposta">
+            <ReplyNews id={data?.[0].id} reply={data?.[0].reply}/> 
 
-                </textarea>
-                <button>Responder</button>
-            </div>
 
             </div>
 
