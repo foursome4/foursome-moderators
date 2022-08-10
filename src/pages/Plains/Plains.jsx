@@ -9,6 +9,8 @@ function Plains(){
         <div className="plains">
             <Navbar />
             <h1>Planos</h1>
+            
+            <a href="/newplain">Novo Plano</a>
 
             <div className="plainsList">
 
