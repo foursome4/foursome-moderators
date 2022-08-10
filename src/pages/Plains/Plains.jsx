@@ -15,6 +15,8 @@ function Plains(){
             {data?.map((payment) => {
                             return (
                                 <div className="unic" key={payment.id}>
+                                        <h4>Referencia</h4>
+                                        <h3>{payment.reference}</h3>
                                         <h4>Plano</h4>
                                         <h3>{payment.name}</h3>
                                         <h4>Valor</h4>
