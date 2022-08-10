@@ -375,12 +375,23 @@ async function deleteForuns(id){
         window.location.reload(false)
     })
 }
-
-
 //Fim deletando
 
 
- 
+ async function createNewPlain({reference, name, value, period}) {
+    console.log(reference, name, value, period)
+    const data = {reference, name, value, period}
+
+    await api.post(`/plains/`, data).then((res) => {
+        console.log("Plano Salvo com sucesso!")
+        toast.info("Plano Salvo com sucesso!")
+
+        window.location.reload(false)
+    }).catch((error) => {
+        console.log("Erro ao cadastrar")
+        toast.error("Erro ao cadastrar")
+    })
+ }
 
     async function logout(idAccount) {
         localStorage.removeItem("foursome");
@@ -410,7 +421,8 @@ async function deleteForuns(id){
             updateAccount,
             newRecado,
             newReply,
-            deleteNews
+            deleteNews,
+            createNewPlain
         }}>
             {children}
         </AuthContext.Provider>

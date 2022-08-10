@@ -7,6 +7,7 @@ import { Events } from '../pages/Events/Events';
 import { Foruns } from '../pages/Foruns/Foruns';
 import { Groups } from '../pages/Groups/Groups';
 import { Invite } from '../pages/Invite/Invite';
+import { NewPlain } from '../pages/NewPlain/NewPlain';
 import { News } from '../pages/News/News';
 import { NewsEdit } from '../pages/NewsEdit/NewsEdit';
 import { NewsUnic } from '../pages/NewsUnic/NewsUnic';
@@ -41,6 +42,8 @@ function PrivateRoute({children} ) {
                     element={ <PrivateRoute> <Patron /> </PrivateRoute>} />
             <Route path="/plains"
                     element={ <PrivateRoute> <Plains /> </PrivateRoute>} />
+            <Route path="/newplain"
+                    element={ <PrivateRoute> <NewPlain /> </PrivateRoute>} />
             <Route path="/payments"
                     element={ <PrivateRoute> <Payments /> </PrivateRoute>} />
             <Route path="/notifications"
