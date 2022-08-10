@@ -60,3 +60,8 @@
     flex-direction: column;
     width: 100px;
 }
+
+.Payments .PaymentsList .unic .dadosList .dados a {
+    color: var(--Foursome3);
+    text-decoration: none;
+}

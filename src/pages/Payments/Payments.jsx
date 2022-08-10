@@ -1,6 +1,7 @@
 ﻿import "./payments.css"
 import {useFetch} from "../../hooks/useFetch"
 import Navbar from "../../components/Nav/Navbar";
+import { DateFormat } from "../../components/DateFormat/DateFormat";
 function Payments(){
 
     const {data} = useFetch(`/payments/all`);
@@ -29,11 +30,11 @@ function Payments(){
                                     <div className="dadosList">
                                     <div className="dados">
                                         <h5><b>Data</b></h5>
-                                        <h5>{payment.created_at}</h5>
+                                        <DateFormat date={payment.created_at}/>
                                     </div>
                                     <div className="dados">
                                         <h5><b>Plano</b></h5>
-                                        <h5>{payment.namePlain}</h5>
+                                        <h5>{payment.referencePlain} - {payment.namePlain}</h5>
                                     </div>
                                     <div className="dados">
                                         <h5><b>Valor</b></h5>
@@ -44,8 +45,13 @@ function Payments(){
                                         <h5>{payment.period} Dias</h5>
                                     </div>
                                     <div className="dados">
+                                        <h5><b>Cliente</b></h5>
+                                        <h5>{payment.idAccount}</h5>
+                                        <h5>{payment.email}</h5>
+                                    </div>
+                                    <div className="dados">
                                         <h5><b>Comprovante</b></h5>
-                                        <h5>{payment.data}</h5>
+                                        <a href={payment.linkComprovant} target="_blank">Abrir</a>
                                     </div>
                                     </div>
                                     <hr />
