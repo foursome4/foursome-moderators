@@ -8,13 +8,14 @@
     padding: 10px;
     color: var(--Background);
     flex-wrap: wrap; 
-    background-color: rgb(225, 0, 0);
+    background-color: var(--Gray_font2);
     border-radius: 6px;
-    color: var(--Background);
+    color: var(--White);
+    margin: 10px;
 }
 
 .block h4 {
-    color: var(--Primary);
+    color: var(--White);
 }
 
 .block .informationAccount {

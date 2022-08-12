@@ -16,17 +16,17 @@ function Accounts() {
             console.log(data?.length)
         } 
       
-        
-        const filterAccounts = data?.filter(account => account.city !== "" || account.uf !== "")
+        let filterAccounts = []
+        if(data) {  
+            filterAccounts = data?.filter(account => account.id !== "" || account.email !== "" || account.username !== "")
+    }
 
-      let SearchUsers = []
       const searchLower = search
-  
-      if(data) {
-          SearchUsers = data?.filter((informations) => informations.email.includes(searchLower))
-                                                        // || informations.email.includes(searchLower)
-                                                        // || informations.id.includes(searchLower))
-      }
+
+       const SearchUsers = filterAccounts?.filter((informations) => informations.id.includes(search)
+                                                        || informations.email.includes(search)
+                                                        || informations.username.includes(search))
+ 
   
     
 
