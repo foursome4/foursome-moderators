@@ -394,13 +394,15 @@ async function deleteForuns(id){
  }
 
 
- async function updatePaymentStatus({id, text, email, idAccount}) {
+ async function updatePaymentStatus({id, text, email, idAccount, plain}) {
     const data = {status: text}
     console.log(id, text, email)
         await api.patch(`payments/${id}`, data).then(async (res) => {
             if(text === "aproved") {
-
-                mailAprovedPayments(email);
+                const data2 = {status: plain === "Premium"? "premium" : "essencial"}
+                await api.patch(`accounts/updatestatus/${idAccount}`, data2).then((res) => {
+                    mailAprovedPayments(email);
+                })
                 return
             }
             if(text === "recused") {

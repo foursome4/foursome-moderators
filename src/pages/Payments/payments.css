@@ -59,9 +59,63 @@
     justify-content: center;
     flex-direction: column;
     width: 100px;
+    text-align: center;
 }
 
 .Payments .PaymentsList .unic .dadosList .dados a {
     color: var(--Foursome3);
     text-decoration: none;
+}
+.Payments .PaymentsList .unic .dadosList .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100px;
+}
+.Payments .PaymentsList .unic .dadosList button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px;
+    margin: 3px;
+    font-size: 16px;
+    border-radius: 50%;
+    color: var(--White);
+    background-color: var(--Button);
+}
+.Payments .PaymentsList .unic .dadosList .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px;
+    margin: 3px;
+    font-size: 16px;
+    border-radius: 50%;
+    color: var(--White);
+    background-color: var(--Foursome2);
+}
+
+.Payments .buttonsPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100px;
+    margin-top: 20px;
+}
+
+.Payments .buttonsPage button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px 20px;
+    margin: 3px;
+    font-size: 16px;
+    border-radius: 20px;
+    color: var(--White);
+    background-color: var(--Button);
 }
