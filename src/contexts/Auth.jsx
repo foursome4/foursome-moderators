@@ -393,6 +393,45 @@ async function deleteForuns(id){
     })
  }
 
+
+ async function updatePaymentStatus({id, text, email, idAccount}) {
+    const data = {status: text}
+    console.log(id, text, email)
+        await api.patch(`payments/${id}`, data).then(async (res) => {
+            if(text === "aproved") {
+
+                mailAprovedPayments(email);
+                return
+            }
+            if(text === "recused") {
+                const data2 = {status: "blocked"}
+                await api.patch(`accounts/updatestatus/${idAccount}`, data2).then((res) => {
+                    mailRecusedPayments(email);
+                })
+                return
+            }
+        });
+ }
+
+ async function mailAprovedPayments(email) {
+    const res = await api.post("/mail/paymentaproved", {mail: email})
+    if(res.status === 200 || res.status === 201) {
+        toast.success("Email enviado");
+        window.location.reload(false);
+}
+console.log("Aproved")
+console.log(email)
+ }
+ async function mailRecusedPayments(email) {
+    const res = await api.post("/mail/paymentreproved", {mail: email})
+    if(res.status === 200 || res.status === 201) {
+        toast.success("Email enviado");
+        window.location.reload(false);
+}
+console.log("Recused")
+console.log(email)
+ }
+
     async function logout(idAccount) {
         localStorage.removeItem("foursome");
         localStorage.removeItem("informations-foursome");
@@ -422,7 +461,8 @@ async function deleteForuns(id){
             newRecado,
             newReply,
             deleteNews,
-            createNewPlain
+            createNewPlain,
+            updatePaymentStatus
         }}>
             {children}
         </AuthContext.Provider>
