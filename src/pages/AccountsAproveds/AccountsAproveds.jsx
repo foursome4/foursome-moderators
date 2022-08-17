@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import api from "../../services/api";
 import { DateFormat } from "../../components/DateFormat/DateFormat";
+import { toast } from "react-toastify";
 
 function AccountsAproveds() {
     const {deleteAccount1, emailAccountAproved} = useContext(AuthContext);
@@ -27,26 +28,24 @@ function AccountsAproveds() {
     useEffect(() => {
         
         async function loadAccounts() {
-           const res = await api.get("/accounts")
+           const res = await api.get("/conversations")
             console.log(res.data)
-           res.data.forEach((account) => {
+           res.data.forEach((conversations) => {
             async function loadInformations() {
-                await api.get(`/preferences/${account.id}`).then((res) => {
-                    console.log(account.id)
-                    console.log(account)
+                await api.get(`/accounts/filter/${conversations.idFriend}`).then((res) => {
+                    console.log(conversations.id)
+                    console.log(conversations)
                     console.log(res.data)
 
-                    const completeAccount = res.data[0] === undefined || res.data[0] === "" || res.data.length === 0 ? false : true;
+                    const completeconversations = res.data[0] === undefined || res.data[0] === "" || res.data.length === 0 ? false : true;
 
                     const dados = {
-                        id: account.id,
-                        email: account.email,
-                        username: account.username,
-                        accountComplete: completeAccount,
-                        patron: account.patron,
-                        type: account.type,
-                        role: account.role,
-                        data: account.created_at,
+                        id: conversations.id,
+                        room: conversations.room,
+                        idAccount: conversations.idAccount,
+                        idFriend: conversations.idFriend,
+                        conversationsComplete: completeconversations,
+                        data: conversations.created_at,
                     }
     
                     setUser(oldUsers => [...oldUsers, dados])
@@ -64,15 +63,39 @@ function AccountsAproveds() {
         loadAccounts()
     }, [])
 
-const filterUsuarios = user.filter((informations) => informations.accountComplete === false)
+const filterUsuarios = user.filter((informations) => informations.conversationsComplete === false);
+const limitData = filterUsuarios?.slice(0,100)
+
+function deleteConversations() {
+    filterUsuarios.forEach((conversations) => {
+        async function deleteConversationsAll() {
+            await api.delete(`/conversations/${conversations.id}`).then((response) => {
+                toast.success("Conversa deletada")
+                console.log("Conversa deletada")
+                console.log(conversations.id)
+            }).catch((error) => {
+                console.log(error)
+            })
+        }
+
+        deleteConversationsAll()
+    })
+}
+
+
+
 
     return (
         <div className="content">
         <div className="AccountsAproveds">
             <Navbar />
-            <h1>Contas de Usuário</h1>
+            <h1>Conversas vazias</h1>
             <h5>{filterUsuarios?.length}</h5>
+            <h1>Conversas vazias</h1>
+            <h5>{limitData?.length}</h5>
 
+
+<button onClick={deleteConversations}>Deletar todas</button>
 
             
 
@@ -83,21 +106,16 @@ const filterUsuarios = user.filter((informations) => informations.accountComplet
                             <div className="unic" key={account.id}>
                                 <div className="text">
                                     <h4>ID: {account.id}</h4>
-                                    <h5>Username: {account.username}</h5>
-                                    <h5>Email: {account.email}</h5>
-                                    <h5>Account: {account.accountComplete}</h5>
-                                </div>
-                                <div className="text">
-                                    <h4>Função: {account.role}</h4>
-                                    <h5>Tipo: {account.type}</h5>
-                                    <h5>Patron: {account.patron}</h5>
+                                    <h5>Sala: {account.room}</h5>
+                                    <h5>idAccount: {account.idAccount}</h5>
+                                    <h5>idFriend: {account.idFriend}</h5>
                                     <DateFormat date={account.data}/>
-                                    {/* <h5>Data: {account.data}</h5> */}
                                 </div>
-                                <div className="buttons">
+
+                                {/* <div className="buttons">
                                    <button onClick={() => handleDeleteAccount(account.id)}className="delete">Deletar</button>
                                    <button onClick={() => handleAprovvdAccount(account.email)}className="delete">Reenviar</button>
-                                </div>
+                                </div> */}
                             </div>
 
                             )

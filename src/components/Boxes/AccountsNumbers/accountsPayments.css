@@ -1,0 +1,88 @@
+﻿.AccountsPayments {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 400px;
+    height: 370px;
+    padding: 20px;
+    color: var(--Background);
+    flex-wrap: wrap; 
+    background-color: var(--Gray_font2);
+    border-radius: 6px;
+    color: var(--White);
+    margin: 10px;
+}
+
+.AccountsPayments .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: blue;
+    margin:5px 0;
+}
+.AccountsPayments .text2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: rgb(201, 188, 0);
+    margin:5px 0;
+}
+.AccountsPayments .text3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: green;
+    margin:5px 0;
+}
+.AccountsPayments .text4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: red;
+    margin:5px 0;
+}
+.AccountsPayments .text5 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 90%;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: black;
+    margin:5px 0;
+    font-weight: bold;
+}
+
+.AccountsPayments .text5 .accountsText {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.AccountsPayments  h3 {
+    font-size: 18px;
+}
+.AccountsPayments  h6 {
+    font-size: 14px;
+}

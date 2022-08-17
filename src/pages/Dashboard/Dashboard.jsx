@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Accounts, AccountsCounter, AccountsCounterAproveds, AccountsCounterPending } from '../../components/Boxes/Accounts/Accounts';
-import { PostPhotos, PostPhotosCounter } from '../../components/Boxes/PostPhotos/PostPhotos';
-import { PostVideo, PostVideoCounter } from '../../components/Boxes/PostVideo/PostVideo';
 import { EventsCounter } from '../../components/Counters/EventsCounter/EventsCounter';
 import { ForunsCounter } from '../../components/Counters/ForunsCounter/ForunsCounter';
 import { GroupsCounter } from '../../components/Counters/GroupsCounter/GroupsCounter';
@@ -14,6 +12,8 @@ import moment from 'moment';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/Auth';
 import { toast } from 'react-toastify';
+import { PaymentsNumbers } from '../../components/Boxes/PaymentsNumbers/PaymentsNumbers';
+import { AccountsPayments } from '../../components/Boxes/AccountsNumbers/AccountsPayments';
 
 function Dashboard() {
     const {logout} = useContext(AuthContext)
@@ -99,9 +99,9 @@ function Dashboard() {
                     <h3>Olá {user.username}, seja bem-vindo de volta</h3>
                 </div>
                 <div className="blocks">
-                 <Accounts />
-                 <PostPhotos />
-                 <PostVideo />               
+                 <Accounts />    
+                 <PaymentsNumbers />    
+                 <AccountsPayments />     
                  </div>
 
                  <div className="mini-blocks">
@@ -118,14 +118,6 @@ function Dashboard() {
                         <AccountsCounterPending /> 
                      </div>
                      <div className="mini">
-                        <h5> Fotos Postadas</h5>
-                        <PostPhotosCounter />
-                     </div>
-                     <div className="mini">
-                        <h5> Videos postados</h5>
-                     <PostVideoCounter /> 
-                     </div>
-                     <div className="mini">
                         <h5> Grupos criados</h5>
                           <GroupsCounter /> 
                      </div>
@@ -136,14 +128,6 @@ function Dashboard() {
                      <div className="mini">
                         <h5> Eventos Criados</h5>
                        <EventsCounter />
-                     </div>
-                     <div className="mini">
-                        <h5> Eventos Aprovados</h5>
-                      <EventsCounter />
-                     </div>
-                     <div className="mini">
-                        <h5> Eventos Pendentes</h5>
-                        <EventsCounter />
                      </div>
                      <div className="mini">
                         <h5> Convites</h5>
