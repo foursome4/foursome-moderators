@@ -70,7 +70,9 @@ function Payments(){
                                     </div>
                                     <div className="dados">
                                         <h5><b>Status</b></h5>
-                                        <h5>{payment.status}</h5>
+                                        <h5 className={payment.status === "aproved" ? "green" : payment.status === "pending" ? "yellow" : "red" }>
+                                            {payment.status === "aproved" ? "Aprovado" : payment.status === "pending" ? "Pendente" : "Recusado" }
+                                            </h5>
                                     </div>
                                     <div className="dados">
                                         <h5><b>Cliente</b></h5>
