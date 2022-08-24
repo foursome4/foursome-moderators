@@ -70,7 +70,7 @@ function Accounts() {
 
     function handleAprovedAccount(id, país, username, role, type, email, phone, online, patron, nickname, avatar,
         cover, relationship, city, uf, cep, latitude, longitude, recommendation) {
-            const status = "Aproved";
+            const status = "active";
 
             updateAccount(id, país, username, role, type, email, phone, online, patron, nickname, avatar,
                 cover, relationship, city, uf, cep, latitude, longitude, recommendation, status)
