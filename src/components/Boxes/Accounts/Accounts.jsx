@@ -5,7 +5,7 @@ import { useFetch } from '../../../hooks/useFetch';
 
 
 function Accounts() {
-    const {deleteAccount1} = useContext(AuthContext);
+    const {deleteAccount1, updateAccountStatus} = useContext(AuthContext);
 
         const [search, setSearch] = useState('');
         const [type, setType] = useState('username');
@@ -29,6 +29,21 @@ function Accounts() {
  
   
     
+        function handleBlockedAccount(id) {
+            const status = "blocked";
+            console.log(id, status)
+          updateAccountStatus(id, status)
+        }
+        function handleBannerAccount(id) {
+            const status = "banned";
+            console.log(id, status)
+            updateAccountStatus(id, status)
+        }
+        function handleLiberateAccount(id) {
+            const status = "active";
+            console.log(id, status)
+            updateAccountStatus(id, status)
+        }
 
       function handleDeleteAccount(id) {
         const deletar = window.confirm("Deseja deletar a postagem?");
@@ -79,12 +94,12 @@ function Accounts() {
                                             <div className="name">
                                             <h4>{account.id} - {account.username}</h4>
                                             <h4>{account.email}</h4>
-                                            <h4>{account.type}</h4>
+                                            <h4>{account.type} - {account.status}</h4>
                                             </div>
                                             <div className="buttons">
-                                                <button className='blocked'>Bloquear</button>
-                                                <button className='banned'>Banir</button>
-                                                <button className='promote'>Promover</button>
+                                                <button onClick={() => handleBlockedAccount(account.id)} className='blocked'>Bloquear</button>
+                                                <button onClick={() => handleBannerAccount(account.id)} className='banned'>Banir</button>
+                                                <button onClick={() => handleLiberateAccount(account.id)} className='promote'>Liberar</button>
                                             </div>
                                             <div className="buttons2">
                                                 <button className='promote' onClick={() => {handleViewPatron(account.id)}}>Ver Apadrinhados</button>

@@ -406,7 +406,7 @@ async function deleteForuns(id){
                 return
             }
             if(text === "recused") {
-                const data2 = {status: "blocked"}
+                const data2 = {status: "suspense"}
                 await api.patch(`accounts/updatestatus/${idAccount}`, data2).then((res) => {
                     mailRecusedPayments(email);
                 })
@@ -414,6 +414,12 @@ async function deleteForuns(id){
             }
         });
  }
+        async function updateAccountStatus(id, status) {
+            const data = {status}
+            await api.patch(`accounts/updatestatus/${id}`, data).then((res) => {
+                toast.info("Conta atualizada!")
+            })
+        }
 
  async function mailAprovedPayments(email) {
     const res = await api.post("/mail/paymentaproved", {mail: email})
@@ -464,7 +470,8 @@ console.log(email)
             newReply,
             deleteNews,
             createNewPlain,
-            updatePaymentStatus
+            updatePaymentStatus,
+            updateAccountStatus
         }}>
             {children}
         </AuthContext.Provider>
