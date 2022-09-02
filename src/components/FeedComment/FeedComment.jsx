@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/Auth";
 import { useFetch } from "../../hooks/useFetch";
+import { DataUser } from "../DataUser/DataUser";
 import { FeedReply } from "../FeedReply/FeedReply"
 import "./feedComment.css"
 
@@ -33,10 +34,7 @@ if(!data) {
 
                     <div className="commentUnic">
                         <div className="user">
-                            <div className="image">
-                                <img src={comment.avatar} alt="Avatar" />
-                            </div>
-                            <h4>{comment.nickname}</h4>
+                            <DataUser idAccount={comment.idAccount} id={comment.id} date={comment.created_at}/>
                         </div>
                         <h5>{comment.text}</h5>
                     </div>

@@ -99,13 +99,13 @@ function Accounts() {
         <div className="content">
         <div className="accounts">
             <Navbar />
-            <h1>Contas de Usuário!!!</h1>
-            <h5>{filterAccounts?.length}</h5>
+            <h1>Solicitações de entrada</h1>
+            <h4>{filterAccounts?.length} solicitações</h4>
 
-            <div className="buttonsSelect">
+            {/* <div className="buttonsSelect">
                 <button onClick={() => {handleSelect("Complete")}}>Contas completas</button>
                 <button onClick={() => {handleSelect("Incomplete")}}>Contas incompletas</button>
-            </div>
+            </div> */}
 
 
             

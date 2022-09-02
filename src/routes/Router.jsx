@@ -1,9 +1,9 @@
 import {Route, Routes, Navigate} from 'react-router-dom';
-import { Feed } from '../components/Feed/Feed';
 import { Accounts } from '../pages/Accounts/Accounts';
 import { AccountsAproveds } from '../pages/AccountsAproveds/AccountsAproveds';
 import { Dashboard } from '../pages/Dashboard/Dashboard';
 import { Events } from '../pages/Events/Events';
+import { FeedPosts } from '../pages/Feed/FeedPosts';
 import { Foruns } from '../pages/Foruns/Foruns';
 import { Groups } from '../pages/Groups/Groups';
 import { Invite } from '../pages/Invite/Invite';
@@ -15,6 +15,7 @@ import { Notifications } from '../pages/Notifications/Notifications';
 import { Patron } from '../pages/Patron/Patron';
 import { Payments } from '../pages/Payments/Payments';
 import { Plains } from '../pages/Plains/Plains';
+import { Profiles } from '../pages/Profiles/Profiles';
 
 import {SignIn} from "../pages/SignIn/SignIn"
 
@@ -35,7 +36,7 @@ function PrivateRoute({children} ) {
             <Route path="/dashboard"
                     element={ <PrivateRoute> <Dashboard/> </PrivateRoute>} />
             <Route path="/feed"
-                    element={ <PrivateRoute> <Feed/> </PrivateRoute>} />
+                    element={ <PrivateRoute> <FeedPosts/> </PrivateRoute>} />
             <Route path="/invites"
                     element={ <PrivateRoute> <Invite /> </PrivateRoute>} />
             <Route path="/patron/:id"
@@ -60,6 +61,8 @@ function PrivateRoute({children} ) {
                     element={ <PrivateRoute> <AccountsAproveds /> </PrivateRoute>} />
             <Route path="/groups"
                     element={ <PrivateRoute> <Groups /> </PrivateRoute>} />
+            <Route path="/profiles"
+                    element={ <PrivateRoute> <Profiles /> </PrivateRoute>} />
             <Route path="/foruns"
                     element={ <PrivateRoute> <Foruns /> </PrivateRoute>} />
             <Route path="/events"

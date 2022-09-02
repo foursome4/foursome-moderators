@@ -1,4 +1,4 @@
-.dataUser {
+.dataUserProfile {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -7,27 +7,27 @@
     color: var(--White);
 }
 
-.dataUser .image {
+.dataUserProfile .image {
     width: 35px;
     height: 35px;
     object-fit: cover;
     border-radius: 50%;
     margin-right: 10px;
 }
-.dataUser .image img{
+.dataUserProfile .image img{
     width: 35px;
     height: 35px;
     object-fit: cover;
     border-radius: 50%;
 }
 
-.dataUser .text {
+.dataUserProfile .text {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
 }
-.dataUser .text h4 {
+.dataUserProfile .text h4 {
     font-weight: 900;
     color: var(--Primary);
 }

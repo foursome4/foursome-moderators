@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/Auth";
 import { useFetch } from "../../hooks/useFetch";
+import { DataUser } from "../DataUser/DataUser";
 import "./feedReply.css"
 
 function FeedReply({id}) {
@@ -36,10 +37,7 @@ if(!data) {
 
                     <div className="ReplyUnic">
                         <div className="user">
-                            <div className="image">
-                                <img src={Reply.avatar} alt="Avatar" />
-                            </div>
-                            <h4>{Reply.nickname}</h4>
+                            <DataUser idAccount={Reply.idAccount} id={Reply.id} date={Reply.created_at}/>
                         </div>
                         <h5>{Reply.text}</h5>
                     </div>

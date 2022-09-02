@@ -3,18 +3,14 @@ import { AuthContext } from '../../contexts/Auth';
 import { useFetch } from '../../hooks/useFetch';
 import { DataUser } from '../DataUser/DataUser';
 import { FeedComment } from '../FeedComment/FeedComment';
-import './feed.css'
+import Navbar from '../Nav/Navbar';
+import './feedComponents.css'
 
 
 
-function Feed() {
+function FeedComponents({link}) {
     const {deletePost} = useContext(AuthContext);
-
-    const [followers, setFollowers] = useState([]);
-    const [currentPage, setCurrentPage] = useState(0);
-
-    const perPage = 5;
-    const {data} = useFetch(`/posts/all?page=${currentPage}&limit=${perPage}`);
+    const {data} = useFetch(link);
 
     function handleDeletePost(id) {
         const deletar = window.confirm("Deseja deletar a postagem?");
@@ -23,38 +19,11 @@ function Feed() {
         } 
     }
     
-    useEffect(() => {
-        if(data) {
-            setFollowers(oldFollowers => [...oldFollowers, ...data])
-        }
-  }, [data]);
-
-
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) {
-        console.log('Sentinela appears!', currentPage + 1)
-        setCurrentPage((currentValue) => currentValue + 1);
-      }
-    })
-    intersectionObserver.observe(document.querySelector('#sentinela'));
-    return () => intersectionObserver.disconnect();
-  }, []);
-
-
-if(!followers) {
-      return (
-          <div className="load">
-              <h3>Carregando...</h3>
-          </div>
-      )
-  }
-
 
     return(
-        <div className="feed">
-        <div className="feed-posts">
-            {followers?.map((post) => {
+        <div className="feedComponents">
+        <div className="feedComponents-posts">
+            {data?.map((post) => {
                return (
                 <div className="postIndividual" key={post.id}>
                 <DataUser idAccount={post.idAccount} id={post.id} date={post.created_at}/>
@@ -88,14 +57,9 @@ if(!followers) {
                )
             })}
 
-                                <div id="sentinela">
-                                <div className="image">
-                                 <h4>Carregando...</h4>
-                                  </div></div>
-
         </div>
         </div>
     )
 }
 
-export { Feed }
+export { FeedComponents }

@@ -60,6 +60,9 @@
     flex-direction: column;
     width: 100px;
     text-align: center;
+    border-radius: 6px;
+    margin: 5px;
+    padding: 5px;
 }
 
 .Payments .PaymentsList .unic .dadosList .dados .green{
@@ -136,4 +139,29 @@
     border-radius: 20px;
     color: var(--White);
     background-color: var(--Button);
+}
+
+
+@media (max-width: 750px) {
+    .Payments .PaymentsList .unic .dadosList {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .Payments .PaymentsList .unic .dadosList .dados {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 200px;
+        text-align: center;
+        border-radius: 6px;
+        margin: 5px;
+        padding: 5px;
+    }
 }

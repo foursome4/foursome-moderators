@@ -18,7 +18,8 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: rgb(67, 67, 67);
+    background-color: var(--Background);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
     padding:10px;
     border-radius: 6px;
     margin: 5px 0;
@@ -73,6 +74,14 @@
 .feedReply .bloco .ReplyUnic h5 {
     font-weight:900 ;
     margin-left: 30px;
+    color: var(--Black);
 }
+
+@media (max-width: 600px) {
+    .feedReply {
+        width: 90%;
+    }
+}
+
 
 

@@ -9,32 +9,118 @@
 }
 
 .foruns h1 {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 
 .foruns .foruns-list {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 80%;
-    padding: 10px;
-
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
 }
-.foruns .foruns-list .unic {
+.foruns .foruns-list .forunInformations {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    width: 80%;
-    padding: 15px;
-    margin: 5px;
+    width: 75%;
+    height: 550px;
+    background-color: var(--Background);
     border-radius: 6px;
-    background-color: var(--White);
-    color: var(--Primary);
 }
 
+.foruns .foruns-list .listforuns {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 350px;
+    height: 550px;
+    padding: 10px;
+    background-color: var(--Gray_font2);
+    border-radius: 6px;
+    overflow-y: scroll;
+}
+
+.foruns .foruns-list .listforuns::-webkit-scrollbar {
+    width: 12px;              
+  }
+  
+ .foruns .foruns-list .listforuns::-webkit-scrollbar-track {
+    background: var(--Background2);      
+  }
+  
+ .foruns .foruns-list .listforuns::-webkit-scrollbar-thumb {
+    background-color: var(--Black);   
+    border-radius: 20px;      
+    border: 3px solid var(--Background2); 
+  }
+  
+.foruns .foruns-list .listforuns .forunUnic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 98%;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 6px;
+    background-color: var(--Black);
+    color: var(--Primary);
+}
+.foruns .foruns-list .listforuns .forunUnic .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 98%;
+    padding: 5px;
+    margin: 3px;
+}
+
+.foruns .foruns-list .listforuns .forunUnic .buttons button {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin: 3px;
+    color: var(--White);
+}
+.foruns .foruns-list .listforuns .forunUnic .buttons .btn {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin: 3px;
+    color: var(--White);
+}
+.foruns .foruns-list .listforuns .forunUnic .buttons .btn2 {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin: 3px;
+    color: var(--White);
+}
 
 @media (max-width: 850px) {
     .foruns .foruns-list {
@@ -47,17 +133,28 @@
     
     }
 
-    .foruns .foruns-list .unic {
+    .foruns .foruns-list .forunInformations {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         flex-direction: row;
-        width: 100%;
-        padding: 15px;
-        margin: 5px;
+        width: 95%;
+        height: 550px;
+        background-color: var(--Background);
         border-radius: 6px;
-        background-color: var(--White);
-        color: var(--Primary);
+        margin: 20px 0;
     }
     
+    .foruns .foruns-list .listforuns {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 95%;
+        height: 250px;
+        padding: 10px;
+        background-color: var(--Gray_font2);
+        border-radius: 6px;
+        overflow-y: scroll;
+    } 
 }

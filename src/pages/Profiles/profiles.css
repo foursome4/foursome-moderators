@@ -1,4 +1,4 @@
-﻿.events {
+﻿.profiles {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,12 +8,12 @@
     padding: 20px;
 }
 
-.events h1 {
+.profiles h1 {
     margin-top: 20px;
 }
 
 
-.events .events-list {
+.profiles .profiles-list {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -22,7 +22,7 @@
     padding: 5px;
     margin: 10px 0;
 }
-.events .events-list .eventsInformations {
+.profiles .profiles-list .profileInformations {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +33,7 @@
     border-radius: 6px;
 }
 
-.events .events-list .listevents {
+.profiles .profiles-list .listprofiles {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -46,21 +46,34 @@
     overflow-y: scroll;
 }
 
-.events .events-list .listevents::-webkit-scrollbar {
+.profiles .profiles-list .listprofiles input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--Black);
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+}
+
+.profiles .profiles-list .listprofiles::-webkit-scrollbar {
     width: 12px;              
   }
   
- .events .events-list .listevents::-webkit-scrollbar-track {
+ .profiles .profiles-list .listprofiles::-webkit-scrollbar-track {
     background: var(--Background2);      
   }
   
- .events .events-list .listevents::-webkit-scrollbar-thumb {
+ .profiles .profiles-list .listprofiles::-webkit-scrollbar-thumb {
     background-color: var(--Black);   
     border-radius: 20px;      
     border: 3px solid var(--Background2); 
   }
   
-.events .events-list .listevents .eventsUnic {
+.profiles .profiles-list .listprofiles .GroupUnic {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,7 +85,7 @@
     background-color: var(--Black);
     color: var(--Primary);
 }
-.events .events-list .listevents .eventsUnic .buttons {
+.profiles .profiles-list .listprofiles .GroupUnic .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,7 +95,7 @@
     margin: 3px;
 }
 
-.events .events-list .listevents .eventsUnic .buttons button {
+.profiles .profiles-list .listprofiles .GroupUnic .buttons button {
     width: 40%;
     display: flex;
     flex-direction: row;
@@ -95,7 +108,7 @@
     margin: 3px;
     color: var(--White);
 }
-.events .events-list .listevents .eventsUnic .buttons .btn {
+.profiles .profiles-list .listprofiles .GroupUnic .buttons .btn {
     width: 40%;
     display: flex;
     flex-direction: row;
@@ -108,7 +121,7 @@
     margin: 3px;
     color: var(--White);
 }
-.events .events-list .listevents .eventsUnic .buttons .btn2 {
+.profiles .profiles-list .listprofiles .GroupUnic .buttons .btn2 {
     width: 40%;
     display: flex;
     flex-direction: row;
@@ -121,20 +134,33 @@
     margin: 3px;
     color: var(--White);
 }
+.profiles .profiles-list .listprofiles .GroupUnic .buttons .btn3 {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin: 3px;
+    color: var(--Black);
+}
+
 
 
 @media (max-width: 850px) {
-    .events .events-list {
+    .profiles .profiles-list {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         width: 100%;
         padding: 10px;
-    
     }
 
-    .events .events-list .eventsInformations {
+    .profiles .profiles-list .profileInformations {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -146,7 +172,7 @@
         margin: 20px 0;
     }
     
-    .events .events-list .listevents {
+    .profiles .profiles-list .listprofiles {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -157,5 +183,6 @@
         background-color: var(--Gray_font2);
         border-radius: 6px;
         overflow-y: scroll;
-    } 
+    }
+
 }

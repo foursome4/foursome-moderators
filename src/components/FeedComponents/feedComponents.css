@@ -1,20 +1,24 @@
-.feed {
+.feedComponents {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
+    width: 95%;
+    margin: 20px 0;
+
 }
-.feed .feed-posts {
+.feedComponents .feedComponents-posts {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    padding:60px 0px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
 }
 
-.feed .feed-posts .postIndividual{
+.feedComponents .feedComponents-posts .postIndividual{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,10 +30,10 @@
     border-radius: 6px;
     color: aliceblue;
     margin: 10px 0;
+
 }
 
-
-.feed .feed-posts .postIndividual .buttons {
+.feedComponents .feedComponents-posts .postIndividual .buttons {
     width: 90%;
     display: flex;
     align-items: center;
@@ -37,7 +41,7 @@
     flex-direction: row;
 
 }
-.feed .feed-posts .postIndividual .buttons button {
+.feedComponents .feedComponents-posts .postIndividual .buttons button {
     width: 90%;
     display: flex;
     align-items: center;
@@ -52,7 +56,7 @@
     font-weight: 700;
 }
 
-.feed .feed-posts .postIndividual .media{
+.feedComponents .feedComponents-posts .postIndividual .media{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,7 +64,7 @@
     width: 300px;
     padding: 10px;
 }
-.feed .feed-posts .postIndividual .media .postText{
+.feedComponents .feedComponents-posts .postIndividual .media .postText{
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -71,84 +75,73 @@
     color: var(--white);
 }
 
-.feed .feed-posts .postIndividual .media .postText h4 {
-    color: var(--Black);
-}
-.feed .feed-posts .postIndividual .media .image {
+
+
+.feedComponents .feedComponents-posts .postIndividual .media .image {
     width: 300px;
     height: 300px;
     object-fit: cover;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
 }
-.feed .feed-posts .postIndividual .media .image img {
+.feedComponents .feedComponents-posts .postIndividual .media .image img {
     width: 300px;
     height: 300px;
     object-fit: cover;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
 }
 
 
-.feed .feed-posts .postIndividual .media .movie {
+.feedComponents .feedComponents-posts .postIndividual .media .movie {
     width: 300px;
     height: 300px;
     object-fit: cover;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
 }
-.feed .feed-posts .postIndividual .media .movie video {
+.feedComponents .feedComponents-posts .postIndividual .media .movie video {
     width: 300px;
     height: 300px;
     object-fit: cover;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
 }
 
 @media (max-width: 600px) {
-    .feed .feed-posts .postIndividual{
+
+    .feedComponents {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         width: 100%;
+        margin: 20px 0;
+    
     }
 
-    .feed .feed-posts .postIndividual .media .postText{
+    .feedComponents .feedComponents-posts .postIndividual{
         width: 90%;
+    
     }
-
-    .feed .feed-posts .postIndividual .comment {
-        width: 100%;
-    }
-
-    .feed .feed-posts .postIndividual .media .image {
+    .feedComponents .feedComponents-posts .postIndividual .media .image {
         width: 250px;
         height: 250px;
         object-fit: cover;
         box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-        border-radius: 6px;
     }
-    .feed .feed-posts .postIndividual .media .image img {
+    .feedComponents .feedComponents-posts .postIndividual .media .image img {
         width: 250px;
         height: 250px;
         object-fit: cover;
-        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-        border-radius: 6px;
     }
     
     
-    .feed .feed-posts .postIndividual .media .movie {
+    .feedComponents .feedComponents-posts .postIndividual .media .movie {
         width: 250px;
         height: 250px;
         object-fit: cover;
-        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-        border-radius: 6px;
     }
-    .feed .feed-posts .postIndividual .media .movie video {
+    .feedComponents .feedComponents-posts .postIndividual .media .movie video {
         width: 250px;
         height: 250px;
         object-fit: cover;
-        box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
-        border-radius: 6px;
     }
 }
+
 
 
 

@@ -5,12 +5,19 @@ import "./plains.css"
 function Plains(){
 
     const {data} = useFetch(`/plains`);
+
+    function newPlain(e) {
+        e.preventDefault();
+
+        window.open("/newplain", "_self")
+    } 
     return (
+        <div className="content">
         <div className="plains">
-            <Navbar />
+        <Navbar />
             <h1>Planos</h1>
             
-            <a href="/newplain">Novo Plano</a>
+            <button onClick={newPlain}>Novo Plano</button>
 
             <div className="plainsList">
 
@@ -33,6 +40,7 @@ function Plains(){
                         })}
 
             </div>
+        </div>
         </div>
     )
 }

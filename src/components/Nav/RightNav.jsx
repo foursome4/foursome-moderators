@@ -8,12 +8,13 @@ const Ul = styled.ul`
   flex-flow: row nowrap;
 
   li {
-    padding: 18px 10px;
+    padding: 18px 8px;
   }
 
   li a {
     text-decoration: none;
     color: var(--Background);
+    font-size: 0.9em;
 }
 
 button {
@@ -29,7 +30,7 @@ button {
   margin: 10px 0;
 }
 
-  @media (max-width: 768px) {
+  @media (max-width: 868px) {
     flex-flow: column nowrap;
     background-color: #0D2538;
     position: fixed;
@@ -69,10 +70,13 @@ function handleLogout(e) {
       <a href="/feed" > Feed</a>
       </li>
       <li>
+      <a href="/profiles" > Usuários</a>
+      </li>
+      <li>
       <a href="/invites" > Convites</a>
       </li>
       <li>
-      <a href="/accounts" > Contas</a>
+      <a href="/accounts" > Solicitações</a>
       </li>
       <li>
       <a href="/recados" > Recados</a>

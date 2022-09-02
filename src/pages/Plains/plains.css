@@ -13,7 +13,7 @@
     margin-top: 100px;
 }
 
-.plains a {
+.plains button {
     background-color: var(--Black);
     color: var(--White);
     padding: 5px 10px;

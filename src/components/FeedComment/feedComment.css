@@ -12,6 +12,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
 .feedComment .bloco .buttons {
     width: 90%;
     display: flex;
@@ -40,10 +41,15 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: rgb(21, 21, 21);
+    background-color: var(--Background);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
     padding:10px;
     border-radius: 6px;
     margin: 5px 0;
+}
+
+.feedComment .bloco .commentUnic h5 {
+    color: var(--Black);
 }
 .feedComment .bloco .commentUnic .user {
     width: 90%;
@@ -73,6 +79,22 @@
 .feedComment .bloco .commentUnic h5 {
     font-weight:900 ;
     margin-left: 30px;
+}
+
+@media (max-width: 600px) {
+    .feedComment {
+        width: 100%;
+    }
+
+    .feedComment .bloco {
+        width: 100%;
+    }
+    .feedComment .bloco .buttons {
+        width: 100%;
+    }
+    .feedComment .bloco .reply {
+        width: 100%;
+    }
 }
 
 

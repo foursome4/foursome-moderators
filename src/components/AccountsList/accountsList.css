@@ -1,10 +1,10 @@
-.block {
+.AccountsList {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 400px;
-    height: 420px;
+    width: 350px;
+    height: 550px;
     padding: 10px;
     color: var(--Background);
     flex-wrap: wrap; 
@@ -14,11 +14,11 @@
     margin: 10px;
 }
 
-.block h4 {
+.AccountsList h4 {
     color: var(--White);
 }
 
-.block .informationAccount {
+.AccountsList .informationAccount {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -30,7 +30,7 @@
     height: 90%;
 }
 
-.block .informationAccount .search {
+.AccountsList .informationAccount .search {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@
     margin: 10px 0;
 }
 
-.block .informationAccount .search .buttons {
+.AccountsList .informationAccount .search .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +48,7 @@
     margin: 10px 0;
 }
 
-.block .informationAccount .search .buttons button {
+.AccountsList .informationAccount .search .buttons button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,7 +62,7 @@
     padding: 10px;
     border: none;
 }
-.block .informationAccount .search .buttons .selected {
+.AccountsList .informationAccount .search .buttons .selected {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,7 +77,7 @@
     border: none;
 }
 
-.block .informationAccount .search input {
+.AccountsList .informationAccount .search input {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,21 +89,21 @@
     border: none;
 }
 
-.block .informationAccount::-webkit-scrollbar {
+.AccountsList .informationAccount::-webkit-scrollbar {
     width: 12px;              
   }
   
- .block .informationAccount::-webkit-scrollbar-track {
+ .AccountsList .informationAccount::-webkit-scrollbar-track {
     background: var(--Background2);      
   }
   
- .block .informationAccount::-webkit-scrollbar-thumb {
+ .AccountsList .informationAccount::-webkit-scrollbar-thumb {
     background-color: var(--Black);   
     border-radius: 20px;      
     border: 3px solid var(--Background2); 
   }
 
-.block .informationAccount .account {
+.AccountsList .informationAccount .account {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,7 +115,7 @@
     padding: 5px;
 }
 
-.block .informationAccount .account .name {
+.AccountsList .informationAccount .account .name {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,11 +123,11 @@
     
 }
 
-.block .informationAccount .account .name h4 {
+.AccountsList .informationAccount .account .name h4 {
     font-weight: 700;
     margin: 5px 0 0 0;
 }
-.block .informationAccount .account .buttons {
+.AccountsList .informationAccount .account .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,7 +135,7 @@
     margin: 5px 0;
 
 }
-.block .informationAccount .account .buttons2 {
+.AccountsList .informationAccount .account .buttons2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,7 +144,7 @@
     width:100%;
 }
 
-.block .informationAccount .account .buttons .promote{
+.AccountsList .informationAccount .account .buttons .promote{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,7 +159,7 @@
     width: 80px;
     height: 30px;
 }
-.block .informationAccount .account .buttons .blocked{
+.AccountsList .informationAccount .account .buttons .AccountsListed{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,7 +174,7 @@
     width: 80px;
     height: 30px;
 }
-.block .informationAccount .account .buttons .banned{
+.AccountsList .informationAccount .account .buttons .banned{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -189,7 +189,7 @@
     width: 80px;
     height: 30px;
 }
-.block .informationAccount .account .buttons2 .banned2{
+.AccountsList .informationAccount .account .buttons2 .banned2{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,7 +204,7 @@
     width: 80%;
     height: 30px;
 }
-.block .informationAccount .account .buttons2 .promote{
+.AccountsList .informationAccount .account .buttons2 .promote{
     display: flex;
     align-items: center;
     justify-content: center;
