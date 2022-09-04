@@ -10,11 +10,6 @@ function AccountsList() {
         const [search, setSearch] = useState('');
         const [type, setType] = useState('username');
         const {data} = useFetch(`accounts`);
-
-        if(data){
-            console.log("Contas total:")
-            console.log(data?.length)
-        } 
       
         let filterAccounts = []
         if(data) {  

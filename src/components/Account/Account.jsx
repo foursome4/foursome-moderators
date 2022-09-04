@@ -10,7 +10,6 @@ function Account({id, role, status, avatar, cover, type, username, nickname, cit
         async function loadInformations() {
             await api.get(`/informations/${id}`).then((res) => {
                 setInformations(res.data[0]);
-                console.log(res.data[0])
             })
         }
 
