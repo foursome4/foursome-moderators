@@ -44,7 +44,9 @@ button {
 
     li {
       color: #fff;
+      padding: 14px 8px;
     }
+
 
   }
 `;
