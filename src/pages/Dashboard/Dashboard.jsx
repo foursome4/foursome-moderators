@@ -101,7 +101,9 @@ function Dashboard() {
          })
     }
 
-    const filterLogin = login.filter((login) => new Date(login.created_at).getDate() === new Date().getDate())
+    const filterLogin = login.filter((login) =>
+            new Date(login.created_at).getDate() === new Date().getDate())
+            // new Date(login.created_at).getMonth() === new Date().getMonth())
 
     console.log(filterLogin);
 

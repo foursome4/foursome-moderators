@@ -27,6 +27,30 @@
     background-color: var(--Button);
     color: var(--White);
 }
+.AccountsAproveds select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px;
+    background-color: var(--Foursome1);
+    color: var(--White);
+}
+.AccountsAproveds button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    margin: 5px;
+    background-color: var(--Button);
+    color: var(--White);
+}
 
 .AccountsAproveds h1 {
     margin-top: 40px;

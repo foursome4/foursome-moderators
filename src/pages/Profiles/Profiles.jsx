@@ -1,10 +1,14 @@
 ﻿import "./profiles.css"
 import Navbar from "../../components/Nav/Navbar";
 import { useFetch } from "../../hooks/useFetch"
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Account } from "../../components/Account/Account";
+import { AuthContext } from "../../contexts/Auth";
 
 function Profiles() {
+    const {deleteAccount1, updateAccountStatus} = useContext(AuthContext);
+
+
     const [search, setSearch] = useState('');
 const [id, setId] = useState("")
 const [role, setRole ] = useState("")
@@ -50,6 +54,34 @@ function handleInfos(id, role, status, avatar, cover, type, username, nickname, 
     setPaís(país);
 }
 
+function handleBlockedAccount(id) {
+    const status = "blocked";
+    console.log(id, status)
+  updateAccountStatus(id, status)
+}
+function handleSuspenseAccount(id) {
+    const status = "suspense";
+    console.log(id, status)
+  updateAccountStatus(id, status)
+}
+function handleBannerAccount(id) {
+    const status = "banned";
+    console.log(id, status)
+    updateAccountStatus(id, status)
+}
+function handleLiberateAccount(id) {
+    const status = "active";
+    console.log(id, status)
+    updateAccountStatus(id, status)
+}
+
+function handleDeleteAccount(id) {
+    const deletar = window.confirm("Deseja deletar a postagem?");
+    if(deletar === true) {
+        deleteAccount1(id);
+    } 
+}
+
     return (
         <div className="content">
         <div className="profiles">
@@ -69,13 +101,13 @@ function handleInfos(id, role, status, avatar, cover, type, username, nickname, 
                                 <button onClick={() =>
                                     handleInfos(groups.id, groups.role, groups.status, groups.avatar, groups.cover, groups.type, groups.username, groups.nickname, groups.city, groups.uf, groups.país)}
                                     >Abrir</button>
-                                <button className="btn">Deletar</button>
+                                <button onClick={() =>handleDeleteAccount(groups.id)} className="btn">Deletar</button>
                             </div>
                             <div className="buttons">
-                                <button >Liberar</button>
-                                <button className="btn2">Supender</button>
-                                <button className="btn3">Bloquear</button>
-                                <button className="btn">Banir</button>
+                                <button onClick={() =>handleLiberateAccount(groups.id)}>Liberar</button>
+                                <button onClick={() =>handleSuspenseAccount(groups.id)} className="btn2">Supender</button>
+                                <button onClick={() =>handleBlockedAccount(groups.id)} className="btn3">Bloquear</button>
+                                <button onClick={() =>handleBannerAccount(groups.id)} className="btn">Banir</button>
                             </div>
                         </div>
                     )
